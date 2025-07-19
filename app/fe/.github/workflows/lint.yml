@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened] # PRが作成・更新・再オープンされたとき
+    types: [opened, synchronize, reopened, ready_for_review]
     branches: [ main ]
 
 jobs:
