@@ -9,7 +9,8 @@
     "fmt": "npx @biomejs/biome format --write",
     "lint": "npx @biomejs/biome lint --write",
     "check": "npx @biomejs/biome check --write",
-    "ci": "npx @biomejs/biome ci"
+    "ci": "npx @biomejs/biome ci",
+    "compile": "tsc"
   },
   "dependencies": {
     "next": "15.4.2",
