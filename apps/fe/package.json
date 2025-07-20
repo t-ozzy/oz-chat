@@ -6,10 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "fmt": "npx @biomejs/biome format --write",
-    "lint": "npx @biomejs/biome lint --write",
-    "check": "npx @biomejs/biome check --write",
-    "ci": "npx @biomejs/biome ci",
+    "fmt": "npx @biomejs/biome format --write ./src",
+    "lint": "npx @biomejs/biome lint --write ./src",
+    "check": "npx @biomejs/biome check --write ./src",
+    "ci": "npx @biomejs/biome ci ./src",
     "compile": "tsc"
   },
   "dependencies": {
