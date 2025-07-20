@@ -4,8 +4,8 @@ import baseTheme from "./baseTheme";
 const theme = extendTheme({
   ...baseTheme,
   config: {
-    cssVarPrefix: 'ck',
+    cssVarPrefix: "ck",
   },
-})
+});
 
 export default theme;
