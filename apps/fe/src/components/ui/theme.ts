@@ -43,6 +43,21 @@ const config = defineConfig({
           700: { value: "#441965" },
         },
       },
+      sizes: {
+        // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
+        header: { value: "4rem" },          // 固定ヘッダー
+        footer: { value: "5rem" },          // フッターやモバイルタブ
+        sidebar: { value: "16rem" },        // ナビゲーションなど
+        card: { value: "22rem" },           // 投稿カードやプロフィールカード
+        avatar: { value: "3rem" },          // ユーザーアイコン
+        postImage: { value: "30rem" },      // 投稿画像の最大幅
+        formWidth: { value: "20rem" },      // 投稿フォームやログインフォーム
+
+        full: { value: "100%" },            // レイアウト全体を広げる
+        min: { value: "min-content" },      // 最小幅に合わせる
+        max: { value: "max-content" },      // 最大幅に合わせる
+        fit: { value: "fit-content" },      // コンテンツに合わせてサイズ調整
+      }
     },
   },
 });
