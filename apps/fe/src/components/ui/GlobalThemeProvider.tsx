@@ -10,7 +10,7 @@ export function GlobalThemeProvider({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
       <ChakraProvider value={system}>{children}</ChakraProvider>
     </ThemeProvider>
   );
