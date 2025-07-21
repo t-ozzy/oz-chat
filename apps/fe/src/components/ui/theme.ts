@@ -57,7 +57,16 @@ const config = defineConfig({
         min: { value: "min-content" },      // 最小幅に合わせる
         max: { value: "max-content" },      // 最大幅に合わせる
         fit: { value: "fit-content" },      // コンテンツに合わせてサイズ調整
-      }
+      },
+      spacing: {
+        gutter: { value: "1rem" },          // 一般的な左右の余白
+        section: { value: "2rem" },         // セクション間の上下余白
+        cardPadding: { value: "1rem" },     // 投稿カードやプロフィールカードの内側余白
+        cardGap: { value: "0.75rem" },      // カード内の要素間隔
+        contentGap: { value: "1.25rem" },   // 投稿とコメントの間隔
+        avatarMargin: { value: "0.5rem" },  // アイコンとテキストの間隔
+        commentIndent: { value: "1.5rem" }, // コメントのインデント
+      },
     },
   },
 });
