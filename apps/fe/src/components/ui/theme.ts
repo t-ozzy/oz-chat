@@ -45,26 +45,26 @@ const config = defineConfig({
       },
       sizes: {
         // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
-        header: { value: "4rem" },          // 固定ヘッダー
-        footer: { value: "5rem" },          // フッターやモバイルタブ
-        sidebar: { value: "16rem" },        // ナビゲーションなど
-        card: { value: "22rem" },           // 投稿カードやプロフィールカード
-        avatar: { value: "3rem" },          // ユーザーアイコン
-        postImage: { value: "30rem" },      // 投稿画像の最大幅
-        formWidth: { value: "20rem" },      // 投稿フォームやログインフォーム
+        header: { value: "4rem" }, // 固定ヘッダー
+        footer: { value: "5rem" }, // フッターやモバイルタブ
+        sidebar: { value: "16rem" }, // ナビゲーションなど
+        card: { value: "22rem" }, // 投稿カードやプロフィールカード
+        avatar: { value: "3rem" }, // ユーザーアイコン
+        postImage: { value: "30rem" }, // 投稿画像の最大幅
+        formWidth: { value: "20rem" }, // 投稿フォームやログインフォーム
 
-        full: { value: "100%" },            // レイアウト全体を広げる
-        min: { value: "min-content" },      // 最小幅に合わせる
-        max: { value: "max-content" },      // 最大幅に合わせる
-        fit: { value: "fit-content" },      // コンテンツに合わせてサイズ調整
+        full: { value: "100%" }, // レイアウト全体を広げる
+        min: { value: "min-content" }, // 最小幅に合わせる
+        max: { value: "max-content" }, // 最大幅に合わせる
+        fit: { value: "fit-content" }, // コンテンツに合わせてサイズ調整
       },
       spacing: {
-        gutter: { value: "1rem" },          // 一般的な左右の余白
-        section: { value: "2rem" },         // セクション間の上下余白
-        cardPadding: { value: "1rem" },     // 投稿カードやプロフィールカードの内側余白
-        cardGap: { value: "0.75rem" },      // カード内の要素間隔
-        contentGap: { value: "1.25rem" },   // 投稿とコメントの間隔
-        avatarMargin: { value: "0.5rem" },  // アイコンとテキストの間隔
+        gutter: { value: "1rem" }, // 一般的な左右の余白
+        section: { value: "2rem" }, // セクション間の上下余白
+        cardPadding: { value: "1rem" }, // 投稿カードやプロフィールカードの内側余白
+        cardGap: { value: "0.75rem" }, // カード内の要素間隔
+        contentGap: { value: "1.25rem" }, // 投稿とコメントの間隔
+        avatarMargin: { value: "0.5rem" }, // アイコンとテキストの間隔
         commentIndent: { value: "1.5rem" }, // コメントのインデント
       },
       fonts: {
@@ -73,10 +73,17 @@ const config = defineConfig({
          * mono    =>  // 等幅フォント(コード表示系)。<Code>, <Kbd> etc...
          *
          * INFO <Text fontFamily="myfont"> のようにカスタムフォントを使用することも可能
-        */
+         */
         heading: { value: `'M PLUS Rounded 1c', sans-serif` },
         body: { value: `'Noto Sans JP', system-ui, -apple-system, sans-serif` },
         mono: { value: `'Fira Code', monospace` },
+      },
+      fontSizes: {
+        s: { value: "0.875rem" }, // 補足テキストや小さい文字
+        m: { value: "1rem" }, // 標準本文サイズ
+        l: { value: "1.25rem" }, // 小見出しや強調テキスト
+        xl: { value: "1.5rem" }, // 見出し
+        "2xl": { value: "2rem" }, // 大見出しやタイトル
       },
     },
   },
