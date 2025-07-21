@@ -85,6 +85,12 @@ const config = defineConfig({
         xl: { value: "1.5rem" }, // 見出し
         "2xl": { value: "2rem" }, // 大見出しやタイトル
       },
+      fontWeights: {
+        normal: { value: "400" },  // 通常のテキスト
+        medium: { value: "500" },  // 少し強調したいとき
+        semibold: { value: "600" },// 小見出しなどに
+        bold: { value: "700" },    // 強調見出しやボタン文字など
+      }
     },
   },
 });
