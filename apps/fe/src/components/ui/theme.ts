@@ -67,6 +67,17 @@ const config = defineConfig({
         avatarMargin: { value: "0.5rem" },  // アイコンとテキストの間隔
         commentIndent: { value: "1.5rem" }, // コメントのインデント
       },
+      fonts: {
+        /* heading => 見出し用フォント。<Heading> etc...
+         * body    => 本文用フォント。<Text>, <Button>, <Input> etc...
+         * mono    =>  // 等幅フォント(コード表示系)。<Code>, <Kbd> etc...
+         *
+         * INFO <Text fontFamily="myfont"> のようにカスタムフォントを使用することも可能
+        */
+        heading: { value: `'M PLUS Rounded 1c', sans-serif` },
+        body: { value: `'Noto Sans JP', system-ui, -apple-system, sans-serif` },
+        mono: { value: `'Fira Code', monospace` },
+      },
     },
   },
 });
