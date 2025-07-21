@@ -86,11 +86,18 @@ const config = defineConfig({
         "2xl": { value: "2rem" }, // 大見出しやタイトル
       },
       fontWeights: {
-        normal: { value: "400" },  // 通常のテキスト
-        medium: { value: "500" },  // 少し強調したいとき
-        semibold: { value: "600" },// 小見出しなどに
-        bold: { value: "700" },    // 強調見出しやボタン文字など
-      }
+        normal: { value: "400" }, // 通常のテキスト
+        medium: { value: "500" }, // 少し強調したいとき
+        semibold: { value: "600" }, // 小見出しなどに
+        bold: { value: "700" }, // 強調見出しやボタン文字など
+      },
+      radii: {
+        none: { value: "0" }, // 角丸なし
+        s: { value: "4px" }, // 小さめの角丸（ボタンやカードの軽い丸み）
+        m: { value: "8px" }, // 中くらい（カードやモーダルの角丸）
+        l: { value: "16px" }, // 大きめ（プロフィール画像の丸みなど）
+        full: { value: "9999px" }, // 完全な丸（丸型のアバターやボタン）
+      },
     },
   },
 });
