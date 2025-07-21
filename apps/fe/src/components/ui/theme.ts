@@ -32,6 +32,9 @@ const config = defineConfig({
           sub: { value: primary[600] },
           link: { value: primary[400] },
         },
+        background: {
+          default: { value: primary[100] }, // 画面全体の背景色
+        },
       },
       sizes: {
         // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
