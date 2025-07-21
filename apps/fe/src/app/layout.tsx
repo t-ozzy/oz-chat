@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Box } from "@chakra-ui/react";
+import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <GlobalThemeProvider>
+          <Box bg="background.default" minH="100vh">
+            {children}
+          </Box>
+        </GlobalThemeProvider>
       </body>
     </html>
   );
