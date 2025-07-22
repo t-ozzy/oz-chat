@@ -4,79 +4,20 @@ import {
   Center,
   Field,
   Fieldset,
-  Input,
   Stack,
   Text,
-  Textarea,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
-
-const schema = yup.object({
-  username: yup
-    .string()
-    .label("名前")
-    .required("名前は必須です")
-    .min(2, "名前は6文字以上で入力してください")
-    .max(20, "名前は16文字以内で入力してください"),
-  email: yup
-    .string()
-    .label("メールアドレス")
-    .required("メールアドレスは必須です")
-    .email("有効なメールアドレスを入力してください"),
-  password: yup
-    .string()
-    .label("パスワード")
-    .required("パスワードは必須です")
-    .min(6, "パスワードは6文字以上で入力してください")
-    .max(16, "パスワードは16文字以内で入力してください"),
-  message: yup
-    .string()
-    .label("自己紹介")
-    .required("自己紹介は必須です")
-    .max(200, "自己紹介は200文字以内で入力してください"),
-});
-
-type FormValues = yup.InferType<typeof schema>;
-type FieldName = keyof FormValues;
-
-const FormFields = [
-  {
-    name: "username",
-    label: "名前",
-    placeholder: "田中太郎",
-    type: "text",
-    component: Input,
-  },
-  {
-    name: "email",
-    label: "メールアドレス",
-    placeholder: "example@gmail.com",
-    type: "email",
-    component: Input,
-  },
-  {
-    name: "password",
-    label: "パスワード",
-    placeholder: "password123",
-    type: "password",
-    component: Input,
-  },
-  {
-    name: "message",
-    label: "自己紹介",
-    placeholder: "自己紹介を入力してください...",
-    component: Textarea,
-  },
-];
+import { FormFields } from "./signUpFormFields";
+import { type FieldName, type FormValues, schema } from "./signUpSchema";
 
 function SignUpForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
 
