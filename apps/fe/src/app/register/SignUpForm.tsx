@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   Center,
   Field,
   Fieldset,
@@ -40,34 +41,44 @@ function SignUpForm() {
   ];
 
   return (
-    <Fieldset.Root>
-      <Stack>
-        <Center>
-          <Fieldset.Legend>アカウント登録</Fieldset.Legend>
-        </Center>
-        <Center>
-          <Fieldset.HelperText>
-            新しいアカウントを作成してSNSを始めましょう
-          </Fieldset.HelperText>
-        </Center>
-      </Stack>
+    <Center h="100vh">
+      <Card.Root w="formWidth">
+        <Fieldset.Root>
+          <Card.Body>
+            <Stack>
+              <Center>
+                <Fieldset.Legend fontWeight="bold" fontSize="xl" color="fontColor.main" m="m">
+                  アカウント登録
+                </Fieldset.Legend>
+              </Center>
+              <Center>
+                <Fieldset.HelperText mb="m">
+                  新しいアカウントを作成してSNSを始めましょう
+                </Fieldset.HelperText>
+              </Center>
+            </Stack>
 
-      <Fieldset.Content>
-        {FormFieldArray.map((field) => {
-          const { component: Component, label, ...rest } = field;
-          return (
-            <Field.Root key={field.name}>
-              <Field.Label>{label}</Field.Label>
-              <Component {...rest} />
-            </Field.Root>
-          );
-        })}
-      </Fieldset.Content>
+            <Fieldset.Content>
+              {FormFieldArray.map((field) => {
+                const { component: Component, label, ...rest } = field;
+                return (
+                  <Field.Root key={field.name} mt="xs">
+                    <Field.Label>{label}</Field.Label>
+                    <Component {...rest} />
+                  </Field.Root>
+                );
+              })}
+            </Fieldset.Content>
 
-      <Button type="submit">
-        アカウント作成
-      </Button>
-    </Fieldset.Root>
+          </Card.Body>
+          <Card.Footer>
+            <Button type="submit" w="full" borderRadius="m">
+              アカウント作成
+            </Button>
+          </Card.Footer>
+        </Fieldset.Root>
+      </Card.Root>
+    </Center >
   );
 }
 
