@@ -11,8 +11,8 @@ const menuItems = [
 export default function SideBar() {
   return (
     <Box
-      w="15vw"
-      h="100vh"
+      w="sideBar.width"
+      h="sideBar.height"
       p={4}
       background="background.sideBar"
       color="fontColor.main"

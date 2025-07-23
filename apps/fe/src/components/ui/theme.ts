@@ -39,6 +39,10 @@ const config = defineConfig({
       },
       sizes: {
         // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
+        sideBar: {
+          height: { value: "100vh" },
+          width: { value: "15vw" },
+        },
         full: { value: "100%" }, // レイアウト全体を広げる
         min: { value: "min-content" }, // 最小幅に合わせる
         max: { value: "max-content" }, // 最大幅に合わせる
