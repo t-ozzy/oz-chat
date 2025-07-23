@@ -1,4 +1,12 @@
-import { Box, Grid, GridItem, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Grid,
+  GridItem,
+  HStack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 export default function Profile() {
   return (
@@ -19,13 +27,16 @@ export default function Profile() {
                 </Text>
               </GridItem>
               <GridItem mb={4}>
-                <Text>@oz-chat</Text>
+                <Text color="fontColor.lightGray">@oz-chat</Text>
               </GridItem>
               <GridItem mb={4}>
                 <Box>description</Box>
               </GridItem>
-              <GridItem>
-                <Box>followers</Box>
+              <GridItem mb={2}>
+                <HStack spaceX="l">
+                  <Text fontSize="s">0フォロー中</Text>
+                  <Text fontSize="s">0フォロワー</Text>
+                </HStack>
               </GridItem>
             </Grid>
           </GridItem>
@@ -35,6 +46,11 @@ export default function Profile() {
             <Box>プロフィール編集</Box>
           </GridItem>
         </Grid>
+      </GridItem>
+      <GridItem>
+        <Center>
+          <Text>ツイート</Text>
+        </Center>
       </GridItem>
     </Grid>
   );
