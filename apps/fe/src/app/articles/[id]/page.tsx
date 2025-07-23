@@ -16,10 +16,11 @@ export default function PostDetail() {
   }
 
   const found = mockDBPosts.find((e) => e.id === id);
-  if (found) {
-    const convertedPost = { ...found, postTime: new Date(found.postTime) };
-    setPost(convertedPost);
+  if (!found) {
+    return <div>Not Found</div>;
   }
+  const convertedPost = { ...found, postTime: new Date(found.postTime) };
+  setPost(convertedPost);
 
   if (!post) return <div>Not Found</div>;
   return (
