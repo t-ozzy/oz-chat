@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Center, List } from "@chakra-ui/react";
 import type { Tweet as TypeTweet } from "./type";
-import Tweet from "./Tweet";
+import Tweet from "./components/Tweet";
 
 export default function Articles() {
   const [tweets, setTweets] = useState<TypeTweet[]>([]);
