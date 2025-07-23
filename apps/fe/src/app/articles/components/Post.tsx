@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Avatar, Link } from "@chakra-ui/react";
+import { Avatar, Box, HStack, Link, Text } from "@chakra-ui/react";
 
 type PostProps = {
   postId: number;

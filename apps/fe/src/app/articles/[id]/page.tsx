@@ -1,9 +1,9 @@
 "use client";
 
-import { Box, HStack, Text, Avatar } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { Post as TypePost } from "../type";
+import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import type { Post as TypePost } from "../type";
 
 export default function PostDetail() {
   const params = useParams();
