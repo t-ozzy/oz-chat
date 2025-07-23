@@ -4,3 +4,5 @@ export type Post = {
   post: string;
   postTime: Date;
 };
+
+export type DBPost = Omit<Post, "postTime"> & { postTime: string };

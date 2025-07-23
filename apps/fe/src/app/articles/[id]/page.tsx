@@ -2,31 +2,26 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { mockPosts } from "../mockData";
 import type { Post as TypePost } from "../type";
 
 export default function PostDetail() {
   const params = useParams();
-  const id: number = Number(params.id);
   const [post, setPost] = useState<TypePost | undefined>(undefined);
 
-  // reduxの使い方がわからないため、一旦フェッチ
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/mock.json");
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      const data = await res.json();
-      //   console.log(data);
-      const found = data.find((e: TypePost) => e.id === id);
-      //   console.log(`${id} : ${found}`);
-      setPost(found);
-    })();
-  }, [id]);
+  const id: number = Number(params.id);
+  if (!(Number.isInteger(id) && Number.isFinite(id) && id >= 0)) {
+    return <div>Not Found</div>;
+  }
+
+  const found = mockPosts.find((e) => e.id === id);
+  if (found) {
+    const convertedPost = { ...found, postTime: new Date(found.postTime) };
+    setPost(convertedPost);
+  }
 
   if (!post) return <div>Not Found</div>;
-
   return (
     <Box
       borderWidth="1px"

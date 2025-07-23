@@ -1,24 +1,19 @@
 "use client";
 
 import { Center, List } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Post from "./components/Post";
+import { mockPosts } from "./mockData";
 import type { Post as TypePost } from "./type";
 
 export default function Articles() {
   const [posts, setPosts] = useState<TypePost[]>([]);
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/mock.json");
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      const data = await res.json();
-      console.log(data);
-      setPosts(data.map((e) => ({ ...e, postTime: new Date(e.postTime) })));
-    })();
-  }, []);
+  const convertedPosts = mockPosts.map((e) => ({
+    ...e,
+    postTime: new Date(e.postTime),
+  }));
+  setPosts(convertedPosts);
 
   return (
     <Center minH="100vh">
