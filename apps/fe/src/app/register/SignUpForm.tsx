@@ -43,7 +43,7 @@ function SignUpForm() {
                 </Center>
                 <Center>
                   <Fieldset.HelperText mb="m">
-                    新しいアカウントを作成してSNSを始めましょう
+                    新しいアカウントを作成してoz chatを始めましょう
                   </Fieldset.HelperText>
                 </Center>
               </Stack>
