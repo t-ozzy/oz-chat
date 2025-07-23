@@ -4,7 +4,7 @@ import {
   Center,
   Field,
   Fieldset,
-  Stack,
+  VStack,
   Text,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,7 +30,7 @@ function SignUpForm() {
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
           <Fieldset.Root>
             <Card.Body>
-              <Stack>
+              <VStack>
                 <Center>
                   <Fieldset.Legend
                     fontWeight="bold"
@@ -46,7 +46,7 @@ function SignUpForm() {
                     新しいアカウントを作成してoz chatを始めましょう
                   </Fieldset.HelperText>
                 </Center>
-              </Stack>
+              </VStack>
 
               <Fieldset.Content>
                 {FormFields.map((field) => {
