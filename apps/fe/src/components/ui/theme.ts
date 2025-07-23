@@ -34,6 +34,7 @@ const config = defineConfig({
         },
         background: {
           default: { value: primary[100] }, // 画面全体の背景色
+          sideBar: { value: primary[50] }, // サイドバーの色
         },
       },
       sizes: {
