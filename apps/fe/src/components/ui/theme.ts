@@ -34,7 +34,7 @@ const config = defineConfig({
           lightGray: { value: "rgb(229, 229, 229)" },
         },
         background: {
-          default: { value: primary[100] }, // 画面全体の背景色
+          default: { value: "rgb(249, 250, 251)" }, // 画面全体の背景色
         },
         border: { value: "rgb(229, 229, 229)" },
       },

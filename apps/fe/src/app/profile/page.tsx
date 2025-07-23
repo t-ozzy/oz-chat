@@ -1,5 +1,7 @@
 import {
+  Avatar,
   Box,
+  Button,
   Center,
   Grid,
   GridItem,
@@ -15,7 +17,12 @@ export default function Profile() {
         <Grid templateColumns="1fr 2fr 1fr" gap={4}>
           {/* 左セクション */}
           <GridItem>
-            <Box>profile pic</Box>
+            <Center>
+              <Avatar.Root size="2xl">
+                <Avatar.Fallback name="profile picture" />
+                <Avatar.Image src="https://ui-avatars.com/api/?name=oz+chat" />
+              </Avatar.Root>
+            </Center>
           </GridItem>
 
           {/* 中央セクションを縦3分割 */}
@@ -43,7 +50,7 @@ export default function Profile() {
 
           {/* 右セクション */}
           <GridItem>
-            <Box>プロフィール編集</Box>
+            <Button size="lg">プロフィール編集</Button>
           </GridItem>
         </Grid>
       </GridItem>
