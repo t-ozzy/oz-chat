@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "taro",
+    "tweet": "こんにちは、世界！",
+    "postTime": "2025-07-23T12:30:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "hanako",
+    "tweet": "TypeScript最高！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 3,
+    "name": "tozeki",
+    "tweet": "aaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 4,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 6,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 7,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 8,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 9,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 10,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 11,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 12,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 13,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 14,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 15,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 16,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 17,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 18,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 19,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 20,
+    "name": "tterao",
+    "tweet": "bbbbbbbbbbbb！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 5,
+    "name": "rikeda",
+    "tweet": "ccccccccccccc！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  }
+]
