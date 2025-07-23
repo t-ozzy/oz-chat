@@ -10,7 +10,7 @@ const menuItems = [
 
 export default function SideBar() {
   return (
-    <Box w="15vw" h="100vh" p={4} background="background.sideBar">
+    <Box w="15vw" h="100vh" p={4} background="background.sideBar" color="fontColor.main">
       <Center>
         <VStack as="nav" spacing={4} align="stretch">
           {menuItems.map((item) => (

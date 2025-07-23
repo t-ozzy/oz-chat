@@ -14,12 +14,12 @@ export default function SideBarContent({ href, label, icon }: SideBarContentProp
       as={NextLink}
       href={href}
       display="flex"
-      alignItems="center"
+      alignItems="left"
       p={2}
       borderRadius="md"
       _hover={{
-        bg: 'gray.100',
-        color: 'gray.900',
+        bg: 'fontColor.main',
+        color: 'background.sideBar',
       }}
     >
       <Icon as={icon} mr={2} />
