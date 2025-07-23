@@ -11,13 +11,11 @@ const menuItems = [
 export default function SideBar() {
   return (
     <Box w="15vw" h="100vh" p={4} background="background.sideBar" color="fontColor.main">
-      <Center>
-        <VStack as="nav" spacing={4} align="stretch">
-          {menuItems.map((item) => (
-            <SideBarContent href={item.href} label={item.label} icon={item.icon} key={item.href} />
-          ))}
-        </VStack>
-      </Center>
+      <VStack as="nav" spacing={4} align="stretch" pt={8}>
+        {menuItems.map((item) => (
+          <SideBarContent href={item.href} label={item.label} icon={item.icon} key={item.href} />
+        ))}
+      </VStack>
     </Box>
   );
 }
