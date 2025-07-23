@@ -14,7 +14,7 @@ export default function Profile() {
   return (
     <Grid>
       <GridItem border="2px solid" borderColor="border">
-        <Grid templateColumns="1fr 2fr 1fr" gap={4}>
+        <Grid templateColumns="min-content min-content min-content" gap={100}>
           {/* 左セクション */}
           <GridItem>
             <Center>
@@ -26,7 +26,7 @@ export default function Profile() {
           </GridItem>
 
           {/* 中央セクションを縦3分割 */}
-          <GridItem>
+          <GridItem minW="200px">
             <Grid templateRows="repeat(4, auto)">
               <GridItem>
                 <Text fontSize="l" fontWeight="medium">
