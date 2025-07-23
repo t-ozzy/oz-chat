@@ -1,6 +1,6 @@
-import { Link, Icon } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { IconType } from 'react-icons';
+import { Icon, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
+import type { IconType } from "react-icons";
 
 interface SideBarContentProps {
   href: string;
@@ -8,7 +8,11 @@ interface SideBarContentProps {
   icon: IconType;
 }
 
-export default function SideBarContent({ href, label, icon }: SideBarContentProps) {
+export default function SideBarContent({
+  href,
+  label,
+  icon,
+}: SideBarContentProps) {
   return (
     <Link
       as={NextLink}
@@ -18,8 +22,8 @@ export default function SideBarContent({ href, label, icon }: SideBarContentProp
       p={2}
       borderRadius="md"
       _hover={{
-        bg: 'fontColor.main',
-        color: 'background.sideBar',
+        bg: "fontColor.main",
+        color: "background.sideBar",
       }}
     >
       <Icon as={icon} mr={2} />
