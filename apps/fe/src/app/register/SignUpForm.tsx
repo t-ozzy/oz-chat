@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { FormFields } from "./signUpFormFields";
 import { type FieldName, type FormValues, schema } from "./signUpSchema";
 
-function SignUpForm() {
+export default function SignUpForm() {
   const {
     register,
     handleSubmit,
@@ -78,5 +78,3 @@ function SignUpForm() {
     </Center>
   );
 }
-
-export default SignUpForm;
