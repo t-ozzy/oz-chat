@@ -2,13 +2,13 @@
 
 import { Box, HStack, Text, Avatar } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Tweet } from "../type";
+import { Tweet as TypeTweet } from "../type";
 import { useParams } from "next/navigation";
 
 export default function TweetDetail() {
   const params = useParams();
   const id: number = Number(params.id);
-  const [tweet, setTweet] = useState<Tweet | undefined>(undefined);
+  const [tweet, setTweet] = useState<TypeTweet | undefined>(undefined);
 
   // reduxの使い方がわからないため、一旦フェッチ
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function TweetDetail() {
       }
       const data = await res.json();
       //   console.log(data);
-      const found = data.find((e: Tweet) => e.id === id);
+      const found = data.find((e: TypeTweet) => e.id === id);
       //   console.log(`${id} : ${found}`);
       setTweet(found);
     })();
