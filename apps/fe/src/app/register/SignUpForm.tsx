@@ -10,7 +10,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormFields } from "./fields";
-import { type FieldName, type FormValues, schema } from "./signUpSchema";
+import { type FieldName, type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
   const {
