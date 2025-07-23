@@ -57,7 +57,7 @@ export default function SignUpForm() {
                       <Field.Label>{label}</Field.Label>
                       <Component {...rest} {...register(fieldName)} />
                       {errors[fieldName] && (
-                        <Text color="red.500" textStyle="xs">
+                        <Text color="fontColor.error" textStyle="xs">
                           {errors[fieldName]?.message}
                         </Text>
                       )}
