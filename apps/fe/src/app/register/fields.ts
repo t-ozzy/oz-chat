@@ -1,6 +1,7 @@
 import { Input, Textarea } from "@chakra-ui/react";
+import type { FormField } from "./type";
 
-export const FormFields = [
+export const FormFields: FormField[] = [
   {
     name: "username",
     label: "名前",
@@ -18,7 +19,7 @@ export const FormFields = [
   {
     name: "password",
     label: "パスワード",
-    placeholder: "password123",
+    placeholder: "••••••••",
     type: "password",
     component: Input,
   },

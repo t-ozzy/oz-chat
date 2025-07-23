@@ -4,15 +4,15 @@ import {
   Center,
   Field,
   Fieldset,
-  Stack,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { FormFields } from "./signUpFormFields";
-import { type FieldName, type FormValues, schema } from "./signUpSchema";
+import { FormFields } from "./fields";
+import { type FormValues, schema } from "./schema";
 
-function SignUpForm() {
+export default function SignUpForm() {
   const {
     register,
     handleSubmit,
@@ -30,7 +30,7 @@ function SignUpForm() {
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
           <Fieldset.Root>
             <Card.Body>
-              <Stack>
+              <VStack>
                 <Center>
                   <Fieldset.Legend
                     fontWeight="bold"
@@ -43,21 +43,21 @@ function SignUpForm() {
                 </Center>
                 <Center>
                   <Fieldset.HelperText mb="m">
-                    新しいアカウントを作成してSNSを始めましょう
+                    新しいアカウントを作成してoz chatを始めましょう
                   </Fieldset.HelperText>
                 </Center>
-              </Stack>
+              </VStack>
 
               <Fieldset.Content>
                 {FormFields.map((field) => {
                   const { component: Component, label, ...rest } = field;
-                  const fieldName = field.name as FieldName;
+                  const fieldName = field.name;
                   return (
                     <Field.Root key={fieldName} mt="xs">
                       <Field.Label>{label}</Field.Label>
                       <Component {...rest} {...register(fieldName)} />
                       {errors[fieldName] && (
-                        <Text color="red.500" textStyle="xs">
+                        <Text color="fontColor.error" textStyle="xs">
                           {errors[fieldName]?.message}
                         </Text>
                       )}
@@ -78,5 +78,3 @@ function SignUpForm() {
     </Center>
   );
 }
-
-export default SignUpForm;

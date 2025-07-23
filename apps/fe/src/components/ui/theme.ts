@@ -31,6 +31,7 @@ const config = defineConfig({
           main: { value: primary[900] },
           sub: { value: primary[600] },
           link: { value: primary[400] },
+          error: { value: "#FF0000" },
         },
         background: {
           default: { value: primary[100] }, // 画面全体の背景色
@@ -38,8 +39,6 @@ const config = defineConfig({
       },
       sizes: {
         // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
-        formWidth: { value: "400px" },
-
         full: { value: "100%" }, // レイアウト全体を広げる
         min: { value: "min-content" }, // 最小幅に合わせる
         max: { value: "max-content" }, // 最大幅に合わせる
