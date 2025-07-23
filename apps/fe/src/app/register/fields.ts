@@ -28,4 +28,4 @@ export const FormFields = [
     placeholder: "自己紹介を入力してください...",
     component: Textarea,
   },
-];
+] as const;

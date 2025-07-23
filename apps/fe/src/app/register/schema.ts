@@ -26,4 +26,3 @@ export const schema = yup.object({
 });
 
 export type FormValues = yup.InferType<typeof schema>;
-export type FieldName = keyof FormValues;

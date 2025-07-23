@@ -10,7 +10,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormFields } from "./fields";
-import { type FieldName, type FormValues, schema } from "./schema";
+import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
   const {
@@ -51,7 +51,7 @@ export default function SignUpForm() {
               <Fieldset.Content>
                 {FormFields.map((field) => {
                   const { component: Component, label, ...rest } = field;
-                  const fieldName = field.name as FieldName;
+                  const fieldName = field.name;
                   return (
                     <Field.Root key={fieldName} mt="xs">
                       <Field.Label>{label}</Field.Label>
