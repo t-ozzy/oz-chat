@@ -18,7 +18,7 @@ export const FormFields = [
   {
     name: "password",
     label: "パスワード",
-    placeholder: "password123",
+    placeholder: "••••••••",
     type: "password",
     component: Input,
   },
