@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Center, List } from "@chakra-ui/react";
-import type { Tweet as TypeTweet } from "./type";
-import Tweet from "./components/Tweet";
+import type { Post as TypePost } from "./type";
+import Post from "./components/Post";
 
 export default function Articles() {
-  const [tweets, setTweets] = useState<TypeTweet[]>([]);
+  const [posts, setPosts] = useState<TypePost[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -16,7 +16,7 @@ export default function Articles() {
       }
       const data = await res.json();
       console.log(data);
-      setTweets(
+      setPosts(
         data.map((e: any) => ({ ...e, postTime: new Date(e.postTime) }))
       );
     })();
@@ -26,14 +26,14 @@ export default function Articles() {
     <>
       <Center minH="100vh">
         <List.Root>
-          {tweets.map((e) => {
+          {posts.map((e) => {
             return (
               <List.Item key={e.id}>
-                <Tweet
+                <Post
                   key={e.id}
-                  tweetId={e.id}
+                  postId={e.id}
                   name={e.name}
-                  tweet={e.tweet}
+                  post={e.post}
                   postTime={e.postTime}
                 />
               </List.Item>

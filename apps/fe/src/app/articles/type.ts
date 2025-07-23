@@ -1,6 +1,6 @@
-export type Tweet = {
+export type Post = {
   id: number;
   name: string;
-  tweet: string;
+  post: string;
   postTime: Date;
 };

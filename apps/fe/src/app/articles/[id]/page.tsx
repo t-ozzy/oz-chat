@@ -2,13 +2,13 @@
 
 import { Box, HStack, Text, Avatar } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Tweet as TypeTweet } from "../type";
+import { Post as TypePost } from "../type";
 import { useParams } from "next/navigation";
 
-export default function TweetDetail() {
+export default function PostDetail() {
   const params = useParams();
   const id: number = Number(params.id);
-  const [tweet, setTweet] = useState<TypeTweet | undefined>(undefined);
+  const [post, setPost] = useState<TypePost | undefined>(undefined);
 
   // reduxの使い方がわからないため、一旦フェッチ
   useEffect(() => {
@@ -19,13 +19,13 @@ export default function TweetDetail() {
       }
       const data = await res.json();
       //   console.log(data);
-      const found = data.find((e: TypeTweet) => e.id === id);
+      const found = data.find((e: TypePost) => e.id === id);
       //   console.log(`${id} : ${found}`);
-      setTweet(found);
+      setPost(found);
     })();
   }, [id]);
 
-  if (!tweet) return <div>Not Found</div>;
+  if (!post) return <div>Not Found</div>;
 
   return (
     <Box
@@ -43,13 +43,13 @@ export default function TweetDetail() {
           <Avatar.Image src="aaa" />
         </Avatar.Root>
         <Text fontSize="xl" fontWeight="bold">
-          {tweet.name}
+          {post.name}
         </Text>
         <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-          {tweet.postTime.toLocaleString()}
+          {post.postTime.toLocaleString()}
         </Text>
       </HStack>
-      <Text>{tweet.tweet}</Text>
+      <Text>{post.post}</Text>
     </Box>
   );
 }

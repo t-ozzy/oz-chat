@@ -2,73 +2,73 @@
   {
     "id": 1,
     "name": "taro",
-    "tweet": "こんにちは、世界！",
+    "post": "こんにちは、世界！",
     "postTime": "2025-07-23T12:30:00.000Z"
   },
   {
     "id": 2,
     "name": "hanako",
-    "tweet": "TypeScript最高！",
+    "post": "TypeScript最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 3,
     "name": "tozeki",
-    "tweet": "Next.js最高！",
+    "post": "Next.js最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 4,
     "name": "tterao",
-    "tweet": "宣言的UI最高！",
+    "post": "宣言的UI最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 5,
     "name": "rikeda",
-    "tweet": "フロントエンド最高！",
+    "post": "フロントエンド最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 6,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 7,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 8,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 9,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 10,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 11,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 12,
     "name": "tmp太郎",
-    "tweet": "aaaaaaaaaaaaa！",
+    "post": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   }
 ]

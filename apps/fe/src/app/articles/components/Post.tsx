@@ -1,15 +1,15 @@
 import { Box, HStack, Text, Avatar, Link } from "@chakra-ui/react";
 
-type TweetProps = {
-  tweetId: number;
+type PostProps = {
+  postId: number;
   name: string;
-  tweet: string;
+  post: string;
   postTime: Date;
 };
 
-export default function Tweet({ tweetId, name, tweet, postTime }: TweetProps) {
+export default function Post({ postId, name, post, postTime }: PostProps) {
   return (
-    <Link href={`/articles/${tweetId}`}>
+    <Link href={`/articles/${postId}`}>
       <Box
         borderWidth="1px"
         borderColor="black"
@@ -30,7 +30,7 @@ export default function Tweet({ tweetId, name, tweet, postTime }: TweetProps) {
             {postTime.toLocaleString()}
           </Text>
         </HStack>
-        <Text>{tweet}</Text>
+        <Text>{post}</Text>
       </Box>
     </Link>
   );
