@@ -3,7 +3,7 @@
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import { mockPosts } from "../mockData";
+import { mockDBPosts } from "../mockData";
 import type { Post as TypePost } from "../type";
 
 export default function PostDetail() {
@@ -15,7 +15,7 @@ export default function PostDetail() {
     return <div>Not Found</div>;
   }
 
-  const found = mockPosts.find((e) => e.id === id);
+  const found = mockDBPosts.find((e) => e.id === id);
   if (found) {
     const convertedPost = { ...found, postTime: new Date(found.postTime) };
     setPost(convertedPost);

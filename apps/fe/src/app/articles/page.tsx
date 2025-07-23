@@ -3,13 +3,13 @@
 import { Center, List } from "@chakra-ui/react";
 import { useState } from "react";
 import Post from "./components/Post";
-import { mockPosts } from "./mockData";
+import { mockDBPosts } from "./mockData";
 import type { Post as TypePost } from "./type";
 
 export default function Articles() {
   const [posts, setPosts] = useState<TypePost[]>([]);
 
-  const convertedPosts = mockPosts.map((e) => ({
+  const convertedPosts = mockDBPosts.map((e) => ({
     ...e,
     postTime: new Date(e.postTime),
   }));

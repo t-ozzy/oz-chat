@@ -1,6 +1,6 @@
 import type { DBPost } from "./type";
 
-export const mockPosts: DBPost[] = [
+export const mockDBPosts: DBPost[] = [
   {
     id: 1,
     name: "taro",
