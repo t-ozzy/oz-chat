@@ -1,18 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Center, List } from "@chakra-ui/react";
+import type { Tweet as TweetType } from "./type";
 import Tweet from "./Tweet";
-import { Center } from "@chakra-ui/react";
-
-type Tweet = {
-  id: number;
-  name: string;
-  tweet: string;
-  postTime: Date;
-};
 
 export default function Articles() {
-  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [tweets, setTweets] = useState<TweetType[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -20,27 +14,32 @@ export default function Articles() {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
-      const data: Tweet[] = await res.json();
+      const data = await res.json();
       console.log(data);
-      setTweets(data);
+      setTweets(
+        data.map((e: any) => ({ ...e, postTime: new Date(e.postTime) }))
+      );
     })();
   }, []);
 
   return (
     <>
       <Center minH="100vh">
-        <ul>
+        <List.Root>
           {tweets.map((e) => {
             return (
-              <Tweet
-                key={e.id}
-                name={e.name}
-                tweet={e.tweet}
-                postTime={new Date(e.postTime)}
-              />
+              <List.Item key={e.id}>
+                <Tweet
+                  key={e.id}
+                  tweetId={e.id}
+                  name={e.name}
+                  tweet={e.tweet}
+                  postTime={e.postTime}
+                />
+              </List.Item>
             );
           })}
-        </ul>
+        </List.Root>
       </Center>
     </>
   );

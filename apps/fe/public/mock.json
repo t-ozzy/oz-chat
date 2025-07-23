@@ -14,109 +14,61 @@
   {
     "id": 3,
     "name": "tozeki",
-    "tweet": "aaaaaaaaaaaa！",
+    "tweet": "Next.js最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 4,
     "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 6,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 7,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 8,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 9,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 10,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 11,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 12,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 13,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 14,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 15,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 16,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 17,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 18,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 19,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
-    "postTime": "2025-07-23T12:00:50.000Z"
-  },
-  {
-    "id": 20,
-    "name": "tterao",
-    "tweet": "bbbbbbbbbbbb！",
+    "tweet": "宣言的UI最高！",
     "postTime": "2025-07-23T12:00:50.000Z"
   },
   {
     "id": 5,
     "name": "rikeda",
-    "tweet": "ccccccccccccc！",
+    "tweet": "フロントエンド最高！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 6,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 7,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 8,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 9,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 10,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 11,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
+    "postTime": "2025-07-23T12:00:50.000Z"
+  },
+  {
+    "id": 12,
+    "name": "tmp太郎",
+    "tweet": "aaaaaaaaaaaaa！",
     "postTime": "2025-07-23T12:00:50.000Z"
   }
 ]
