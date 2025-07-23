@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { FormFields } from "./signUpFormFields";
+import { FormFields } from "./fields";
 import { type FieldName, type FormValues, schema } from "./signUpSchema";
 
 export default function SignUpForm() {
