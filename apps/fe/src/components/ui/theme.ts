@@ -36,11 +36,19 @@ const config = defineConfig({
         },
         background: {
           default: { value: "rgb(249, 250, 251)" }, // 画面全体の背景色
+          sideBar: { value: primary[50] }, // サイドバーの色
+        },
+        borderColor: {
+          main: { value: "#EEEEEE" },
         },
         border: { value: "rgb(229, 229, 229)" },
       },
       sizes: {
-        // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
+        // INFO ChakraUIはデフォルトで0~96などのパラメータを用意済み
+        sideBar: {
+          height: { value: "100vh" },
+          width: { value: "15vw" },
+        },
         full: { value: "100%" }, // レイアウト全体を広げる
         min: { value: "min-content" }, // 最小幅に合わせる
         max: { value: "max-content" }, // 最大幅に合わせる
