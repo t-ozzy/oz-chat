@@ -1,18 +1,8 @@
 import { Icon, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
-import type { IconType } from "react-icons";
+import type { SideBarNavItem } from "./sideBarNavItems";
 
-interface SideBarContentProps {
-  href: string;
-  label: string;
-  icon: IconType;
-}
-
-export default function SideBarContent({
-  href,
-  label,
-  icon,
-}: SideBarContentProps) {
+export default function SideBarContent({ href, label, icon }: SideBarNavItem) {
   return (
     <Link
       as={NextLink}

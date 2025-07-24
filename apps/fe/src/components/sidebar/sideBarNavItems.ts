@@ -2,9 +2,9 @@ import type { IconType } from "react-icons";
 import { FaHome, FaPencilAlt, FaUser } from "react-icons/fa";
 
 export type SideBarNavItem = {
-  href: string,
-  label: string,
-  icon: IconType,
+  href: string;
+  label: string;
+  icon: IconType;
 };
 
 const sideBarNavItems: SideBarNavItem[] = [
