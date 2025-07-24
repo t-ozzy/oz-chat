@@ -42,7 +42,7 @@ const config = defineConfig({
         },
       },
       sizes: {
-        // INFO ChakraUIはデフォルトで0~96などのパラメータを容易済み
+        // INFO ChakraUIはデフォルトで0~96などのパラメータを用意済み
         sideBar: {
           height: { value: "100vh" },
           width: { value: "15vw" },
