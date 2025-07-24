@@ -8,10 +8,10 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { type ArticleValues, ARTICLE_MAX_LENGTH, schema } from "./schema";
+import { FaUser } from "react-icons/fa";
+import { ARTICLE_MAX_LENGTH, type ArticleValues, schema } from "./schema";
 
 export default function ArticleForm() {
   const {
@@ -28,7 +28,8 @@ export default function ArticleForm() {
   const isOverLimit = contentValue.length > ARTICLE_MAX_LENGTH;
 
   const onError = (err: unknown) => console.log("Validation Errors:", err);
-  const onSubmit = (data: ArticleValues) => console.log("Submitted Data:", data);
+  const onSubmit = (data: ArticleValues) =>
+    console.log("Submitted Data:", data);
 
   return (
     <Center>
@@ -42,9 +43,9 @@ export default function ArticleForm() {
                 size="xl"
                 {...register("content")}
               />
-              {errors["content"] && (
+              {errors.content && (
                 <Text color="fontColor.error" textStyle="xs">
-                  {errors["content"]?.message}
+                  {errors.content?.message}
                 </Text>
               )}
             </Field.Root>
@@ -56,14 +57,12 @@ export default function ArticleForm() {
               {contentValue.length} / {ARTICLE_MAX_LENGTH} 文字
             </Text>
 
-
             <Button type="submit" w="l" borderRadius="m" m="xl">
               投稿
             </Button>
           </VStack>
-
         </form>
       </HStack>
     </Center>
-  )
+  );
 }
