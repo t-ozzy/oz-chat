@@ -2,14 +2,10 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
-import { useState } from "react";
 import { mockDBPosts } from "../mockData";
-import type { Post as TypePost } from "../type";
 
 export default function PostDetail() {
   const params = useParams();
-  const [post, setPost] = useState<TypePost | undefined>(undefined);
-
   const id: number = Number(params.id);
   if (!(Number.isInteger(id) && Number.isFinite(id) && id >= 0)) {
     return <div>Not Found</div>;
@@ -19,10 +15,9 @@ export default function PostDetail() {
   if (!found) {
     return <div>Not Found</div>;
   }
-  const convertedPost = { ...found, postTime: new Date(found.postTime) };
-  setPost(convertedPost);
 
-  if (!post) return <div>Not Found</div>;
+  const post = { ...found, postTime: new Date(found.postTime) };
+
   return (
     <Box
       borderWidth="1px"
