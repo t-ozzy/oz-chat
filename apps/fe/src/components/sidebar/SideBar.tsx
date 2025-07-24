@@ -13,7 +13,7 @@ export default function SideBar() {
       borderRightWidth="2px"
       borderColor="borderColor.main"
     >
-      <VStack as="nav" spacing={4} align="stretch" pt={8}>
+      <VStack as="nav" align="stretch" pt={8}>
         {sideBarNavItems.map((item) => (
           <SideBarContent {...item} key={item.href} />
         ))}
