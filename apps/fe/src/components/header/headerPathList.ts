@@ -10,14 +10,6 @@ export const headerPathList: HeaderPathItem[] = [
     match: (pathname) => pathname === "/profile",
   },
   {
-    context: "ホーム",
-    match: (pathname) => pathname === "/home",
-  },
-  {
-    context: "登録画面",
-    match: (pathname) => pathname === "/register",
-  },
-  {
     context: "投稿",
     match: (pathname) => pathname === "/article/create",
   },
@@ -27,7 +19,7 @@ export const headerPathList: HeaderPathItem[] = [
     link: "/articles",
   },
   {
-    context: "記事一覧",
+    context: "ホーム",
     match: (pathname) => pathname === "/articles",
   },
 ];
