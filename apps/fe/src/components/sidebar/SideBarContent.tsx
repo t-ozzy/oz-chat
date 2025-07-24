@@ -8,7 +8,6 @@ export default function SideBarContent({ href, label, icon }: SideBarNavItem) {
       as={NextLink}
       href={href}
       display="flex"
-      alignItems="left"
       p={2}
       borderRadius="md"
       _hover={{
