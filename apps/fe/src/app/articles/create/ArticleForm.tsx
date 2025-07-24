@@ -28,7 +28,11 @@ export default function ArticleForm() {
       <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <VStack m="xl">
           <Field.Root m="xl">
-            <Textarea placeholder="今何してる？" {...register("content")} />
+            <Textarea
+              placeholder="今何してる？"
+              size="xl"
+              {...register("content")}
+            />
             {errors["content"] && (
               <Text color="fontColor.error" textStyle="xs">
                 {errors["content"]?.message}
