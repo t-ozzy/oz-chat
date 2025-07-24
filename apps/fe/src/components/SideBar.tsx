@@ -16,6 +16,8 @@ export default function SideBar() {
       p={4}
       background="background.sideBar"
       color="fontColor.main"
+      borderRightWidth="2px"
+      borderColor="borderColor.main"
     >
       <VStack as="nav" spacing={4} align="stretch" pt={8}>
         {menuItems.map((item) => (
