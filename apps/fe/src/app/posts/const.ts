@@ -1,4 +1,4 @@
-import type { Post } from "../../components/posts/type";
+import type { Post } from "@/components/posts/type";
 
 export const defaultImgUrl = "tmp";
 

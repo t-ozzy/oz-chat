@@ -2,7 +2,7 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
-import { defaultImgUrl, posts } from "../const";
+import { defaultImgUrl, posts } from "@/app/posts/const";
 
 export default function PostDetail() {
   const params = useParams();
