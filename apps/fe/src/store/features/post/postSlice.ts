@@ -1,5 +1,4 @@
-
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface Post {
   id: string;
@@ -17,10 +16,10 @@ const initialState: PostState = {
 };
 
 export const postSlice = createSlice({
-  name: 'post',
+  name: "post",
   initialState,
   reducers: {
-    addPost: (state, action: PayloadAction<Omit<Post, 'id'>>) => {
+    addPost: (state, action: PayloadAction<Omit<Post, "id">>) => {
       const newPost = {
         ...action.payload,
         id: new Date().toISOString(), // Use timestamp for unique ID
@@ -28,7 +27,9 @@ export const postSlice = createSlice({
       state.posts.push(newPost);
     },
     deletePost: (state, action: PayloadAction<string>) => {
-      state.posts = state.posts.filter(article => article.id !== action.payload);
+      state.posts = state.posts.filter(
+        (article) => article.id !== action.payload,
+      );
     },
   },
 });

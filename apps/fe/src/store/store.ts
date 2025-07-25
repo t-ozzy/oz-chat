@@ -11,7 +11,8 @@ const persistConfig = {
   storage, // storageに永続化
 };
 
-const rootReducer = combineReducers({ // 新規作成したReducerはここに追加していく
+const rootReducer = combineReducers({
+  // 新規作成したReducerはここに追加していく
   account: accountReducer,
   post: postReducer,
 });
