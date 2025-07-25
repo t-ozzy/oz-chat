@@ -26,7 +26,7 @@ export const postSlice = createSlice({
         post: action.payload.post,
         createdAt: new Date().toISOString(),
       };
-      state.posts.push(newPost);
+      state.posts.unshift(newPost); // 先頭に入れる
     },
     deletePost: (state, action: PayloadAction<string>) => {
       state.posts = state.posts.filter(
