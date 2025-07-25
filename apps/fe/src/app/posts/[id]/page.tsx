@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import { defaultImgUrl, posts } from "@/app/posts/const";
 import Header from "@/components/header/Header";
 
@@ -11,7 +11,7 @@ export default function PostDetail() {
 
   const post = posts.find((e) => e.id === id);
 
-  if (!post) return <div>Not Found</div>;
+  if (!post) notFound();
   return (
     <>
       <Header />

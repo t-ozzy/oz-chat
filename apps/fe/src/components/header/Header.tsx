@@ -5,19 +5,7 @@ import { headerPathList } from "./headerPathList";
 
 export default function Header() {
   const pathname = usePathname();
-  const matchedPath = headerPathList.find((item) => item.match(pathname));
-
-  if (!matchedPath) {
-    return (
-      <header>
-        <Box px="6" py="4" background="white">
-          <Text fontSize="3xl" fontWeight="bold">
-            Not Found
-          </Text>
-        </Box>
-      </header>
-    );
-  }
+  const matchedPath = headerPathList.find((item) => item.match(pathname))!;
 
   return (
     <header>
