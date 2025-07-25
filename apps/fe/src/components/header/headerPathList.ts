@@ -11,15 +11,15 @@ export const headerPathList: HeaderPathItem[] = [
   },
   {
     context: "投稿",
-    match: (pathname) => pathname === "/article/create",
+    match: (pathname) => pathname === "/posts/create",
   },
   {
     context: "< 戻る",
-    match: (pathname) => /^\/articles\/\d+$/.test(pathname),
-    link: "/articles",
+    match: (pathname) => /^\/posts\/[a-zA-Z0-9_]+$/.test(pathname),
+    link: "/posts",
   },
   {
     context: "ホーム",
-    match: (pathname) => pathname === "/articles",
+    match: (pathname) => pathname === "/posts",
   },
 ];
