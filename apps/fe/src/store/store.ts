@@ -3,7 +3,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import counterReducer from "./features/counter/counterSlice";
+import accountReducer from "./features/account/accountSlice";
 
 const persistConfig = {
   key: "root",
@@ -11,7 +11,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({ // 新規作成したReducerはここに追加していく
-  counter: counterReducer
+  account: accountReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
