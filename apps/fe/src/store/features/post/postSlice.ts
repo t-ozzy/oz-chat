@@ -22,7 +22,7 @@ export const postSlice = createSlice({
     addPost: (state, action: PayloadAction<Omit<Post, "id">>) => {
       const newPost = {
         ...action.payload,
-        id: new Date().toISOString(), // Use timestamp for unique ID
+        id: crypto.randomUUID(), // Use UUID for unique ID
       };
       state.posts.push(newPost);
     },
