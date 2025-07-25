@@ -16,7 +16,7 @@ export default function Post({
   img,
 }: PostProps) {
   return (
-    <Link href={`/articles/${postId}`}>
+    <Link href={`/posts/${postId}`}>
       <Box
         borderWidth="1px"
         borderColor="black"
