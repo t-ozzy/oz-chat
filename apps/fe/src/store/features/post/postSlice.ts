@@ -19,10 +19,12 @@ export const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    addPost: (state, action: PayloadAction<Omit<Post, "id">>) => {
+    addPost: (state, action: PayloadAction<{ name: string; post: string }>) => {
       const newPost = {
-        ...action.payload,
         id: crypto.randomUUID(), // Use UUID for unique ID
+        name: action.payload.name,
+        post: action.payload.post,
+        postTime: new Date().toISOString(),
       };
       state.posts.push(newPost);
     },
