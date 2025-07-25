@@ -1,13 +1,20 @@
 import { Avatar, Box, HStack, Link, Text } from "@chakra-ui/react";
 
 type PostProps = {
-  postId: number;
+  postId: string;
   name: string;
   post: string;
-  postTime: Date;
+  createdAt: string;
+  img: string;
 };
 
-export default function Post({ postId, name, post, postTime }: PostProps) {
+export default function Post({
+  postId,
+  name,
+  post,
+  createdAt,
+  img,
+}: PostProps) {
   return (
     <Link href={`/articles/${postId}`}>
       <Box
@@ -21,13 +28,13 @@ export default function Post({ postId, name, post, postTime }: PostProps) {
         <HStack>
           <Avatar.Root colorPalette="gray">
             <Avatar.Fallback name="O Z" />
-            <Avatar.Image src="aaa" />
+            <Avatar.Image src={img} />
           </Avatar.Root>
           <Text fontSize="xl" fontWeight="bold">
             {name}
           </Text>
           <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-            {postTime.toLocaleString()}
+            {createdAt}
           </Text>
         </HStack>
         <Text>{post}</Text>

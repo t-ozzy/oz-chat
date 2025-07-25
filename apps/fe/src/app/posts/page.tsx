@@ -2,14 +2,9 @@
 
 import { Center, List } from "@chakra-ui/react";
 import Post from "./components/Post";
-import { mockDBPosts } from "./mockData";
+import { posts, defaultImgUrl } from "./const";
 
-export default function Articles() {
-  const posts = mockDBPosts.map((e) => ({
-    ...e,
-    postTime: new Date(e.postTime),
-  }));
-
+export default function Posts() {
   return (
     <Center minH="100vh">
       <List.Root listStyle="none">
@@ -17,11 +12,11 @@ export default function Articles() {
           return (
             <List.Item key={e.id}>
               <Post
-                key={e.id}
                 postId={e.id}
                 name={e.name}
                 post={e.post}
-                postTime={e.postTime}
+                createdAt={e.createdAt}
+                img={defaultImgUrl}
               />
             </List.Item>
           );
