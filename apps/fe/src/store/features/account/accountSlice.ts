@@ -28,7 +28,6 @@ export const AccountSlice = createSlice({
   },
 });
 
-export const { updateAccountInfo, clearAccountInfo } =
-  AccountSlice.actions;
+export const { updateAccountInfo, clearAccountInfo } = AccountSlice.actions;
 
 export default AccountSlice.reducer;

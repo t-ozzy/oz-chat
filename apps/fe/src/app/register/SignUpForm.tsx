@@ -9,11 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { FormFields } from "./fields";
-import { type FormValues, schema } from "./schema";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
-import { RootState } from "@/store/store";
+import type { RootState } from "@/store/store";
+import { FormFields } from "./fields";
+import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
   const dispatch = useDispatch();
