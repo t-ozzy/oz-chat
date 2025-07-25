@@ -76,3 +76,4 @@ export const posts: Post[] = [
     createdAt: "2025-07-23T12:00:50.000Z",
   },
 ];
+export const POST_MAX_LENGTH = 280;
