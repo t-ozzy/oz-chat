@@ -2,17 +2,15 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
-import { posts, defaultImgUrl } from "../const";
+import { defaultImgUrl, posts } from "../../../components/posts/const";
 
 export default function PostDetail() {
   const params = useParams();
   const id: string = params.id ? String(params.id) : "";
 
   const post = posts.find((e) => e.id === id);
-  if (!post) {
-    return <div>Not Found</div>;
-  }
 
+  if (!post) return <div>Not Found</div>;
   return (
     <Box
       borderWidth="1px"
