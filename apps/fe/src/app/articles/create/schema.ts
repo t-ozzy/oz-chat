@@ -1,6 +1,5 @@
 import * as yup from "yup";
-
-export const ARTICLE_MAX_LENGTH = 280;
+import { ARTICLE_MAX_LENGTH } from "@/app/articles/const";
 
 export const schema = yup.object({
   content: yup
