@@ -2,9 +2,9 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface Post {
   id: string;
-  content: string;
-  username: string;
-  createdAt: string;
+  name: string;
+  post: string;
+  postTime: string;
 }
 
 interface PostState {
