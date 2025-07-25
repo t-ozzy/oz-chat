@@ -51,7 +51,7 @@ export default function UserInfo() {
         </Grid>
       </GridItem>
       <GridItem>
-        <Text pl={4}>ツイート</Text>
+        <Text pl={4}>投稿</Text>
       </GridItem>
     </Grid>
   );
