@@ -11,4 +11,4 @@ export const schema = yup.object({
     ),
 });
 
-export type ArticleValues = yup.InferType<typeof schema>;
+export type PostFormInput = yup.InferType<typeof schema>;

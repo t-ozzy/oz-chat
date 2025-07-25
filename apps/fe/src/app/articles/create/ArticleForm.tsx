@@ -13,7 +13,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
 import { ARTICLE_MAX_LENGTH } from "@/app/articles/const";
-import { type ArticleValues, schema } from "./schema";
+import { type PostFormInput, schema } from "./schema";
 
 export default function ArticleForm() {
   const {
@@ -21,7 +21,7 @@ export default function ArticleForm() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<ArticleValues>({
+  } = useForm<PostFormInput>({
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
@@ -34,7 +34,7 @@ export default function ArticleForm() {
     [],
   );
   const onSubmit = useCallback(
-    (data: ArticleValues) => console.log("Submitted Data:", data),
+    (data: PostFormInput) => console.log("Submitted Data:", data),
     [],
   );
 
