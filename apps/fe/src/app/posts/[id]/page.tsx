@@ -2,22 +2,15 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
-import { mockDBPosts } from "../mockData";
+import { defaultImgUrl, posts } from "@/app/posts/const";
 
 export default function PostDetail() {
   const params = useParams();
-  const id: number = Number(params.id);
-  if (!(Number.isInteger(id) && Number.isFinite(id) && id >= 0)) {
-    return <div>Not Found</div>;
-  }
+  const id: string = params.id ? String(params.id) : "";
 
-  const found = mockDBPosts.find((e) => e.id === id);
-  if (!found) {
-    return <div>Not Found</div>;
-  }
+  const post = posts.find((e) => e.id === id);
 
-  const post = { ...found, postTime: new Date(found.postTime) };
-
+  if (!post) return <div>Not Found</div>;
   return (
     <Box
       borderWidth="1px"
@@ -31,13 +24,13 @@ export default function PostDetail() {
       <HStack>
         <Avatar.Root colorPalette="gray">
           <Avatar.Fallback name="O Z" />
-          <Avatar.Image src="aaa" />
+          <Avatar.Image src={defaultImgUrl} />
         </Avatar.Root>
         <Text fontSize="xl" fontWeight="bold">
           {post.name}
         </Text>
         <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-          {post.postTime.toLocaleString()}
+          {post.createdAt}
         </Text>
       </HStack>
       <Text>{post.post}</Text>
