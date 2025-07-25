@@ -1,21 +1,18 @@
 "use client";
 
 import { List } from "@chakra-ui/react";
-import { defaultImgUrl, posts } from "./const";
+import { defaultImgUrl } from "@/app/posts/const";
 import Post from "./Post";
+import type { Post as TypePost } from "./type";
 
-type FilteredPostsProps = {
-  filterName?: string;
+type PostsProps = {
+  posts: TypePost[];
 };
 
-export default function FilteredPosts({ filterName }: FilteredPostsProps) {
-  const filteredPosts = filterName
-    ? posts.filter((e) => e.name === filterName)
-    : posts;
-
+export default function Posts({ posts }: PostsProps) {
   return (
     <List.Root listStyle="none">
-      {filteredPosts.map((e) => {
+      {posts.map((e) => {
         return (
           <List.Item key={e.id}>
             <Post

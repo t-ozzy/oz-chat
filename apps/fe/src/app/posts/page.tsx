@@ -1,12 +1,13 @@
 "use client";
 
 import { Center } from "@chakra-ui/react";
-import FilteredPosts from "@/components/posts/FilteredPosts";
+import Posts from "@/components/posts/Posts";
+import { posts } from "./const";
 
-export default function Posts() {
+export default function PostsView() {
   return (
     <Center minH="100vh">
-      <FilteredPosts />
+      <Posts posts={posts} />
     </Center>
   );
 }
