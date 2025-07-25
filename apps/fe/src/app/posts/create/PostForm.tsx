@@ -15,7 +15,7 @@ import { FaUser } from "react-icons/fa";
 import { POST_MAX_LENGTH } from "@/app/posts/const";
 import { type PostFormInput, schema } from "./schema";
 
-export default function ArticleForm() {
+export default function PostForm() {
   const {
     register,
     handleSubmit,
