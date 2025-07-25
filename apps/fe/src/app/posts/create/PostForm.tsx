@@ -9,13 +9,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { POST_MAX_LENGTH } from "@/app/posts/const";
+import { addPost } from "@/store/features/post/postSlice";
+import type { RootState } from "@/store/store";
 import { type PostFormInput, schema } from "./schema";
 
 export default function PostForm() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -25,6 +29,8 @@ export default function PostForm() {
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
+  const postState = useSelector((state: RootState) => state.post);
+  const accountState = useSelector((state: RootState) => state.account);
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -34,9 +40,15 @@ export default function PostForm() {
     [],
   );
   const onSubmit = useCallback(
-    (data: PostFormInput) => console.log("Submitted Data:", data),
-    [],
+    (data: PostFormInput) => {
+      dispatch(addPost({ name: accountState.username, post: data.content }));
+    },
+    [dispatch, accountState.username],
   );
+
+  useEffect(() => {
+    console.log("Posts Data:", postState);
+  }, [postState]);
 
   return (
     <Center>

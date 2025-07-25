@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Box } from "@chakra-ui/react";
 import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
+import { ReduxProvider } from "@/store/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GlobalThemeProvider>
-          <Box bg="background.default" minH="100vh">
-            {children}
-          </Box>
+          <ReduxProvider>
+            <Box bg="background.default" minH="100vh">
+              {children}
+            </Box>
+          </ReduxProvider>
         </GlobalThemeProvider>
       </body>
     </html>
