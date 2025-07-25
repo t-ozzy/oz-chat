@@ -1,4 +1,5 @@
 import { Avatar, Box, HStack, Link, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 type PostProps = {
   postId: string;
@@ -16,7 +17,7 @@ export default function Post({
   img,
 }: PostProps) {
   return (
-    <Link href={`/posts/${postId}`}>
+    <Link href={`/posts/${postId}`} as={NextLink}>
       <Box
         borderWidth="1px"
         borderColor="black"
