@@ -12,7 +12,7 @@ const primary = {
    * 700 ~ 900 => 強い強調、テキストやアイコンの濃い色、影
    */
   50: "#f2fbe9",
-  100: "#d4f3c2",
+  100: "#FFFFFF",
   200: "#b6eb9b",
   300: "#95cc6a",
   400: "#78b450",
@@ -31,15 +31,14 @@ const config = defineConfig({
           main: { value: primary[900] },
           sub: { value: primary[600] },
           link: { value: primary[400] },
+          lightGray: { value: "rgb(229, 229, 229)" },
           error: { value: "#FF0000" },
         },
         background: {
-          default: { value: primary[100] }, // 画面全体の背景色
+          default: { value: "rgb(249, 250, 251)" }, // 画面全体の背景色
           sideBar: { value: primary[50] }, // サイドバーの色
         },
-        borderColor: {
-          main: { value: "#EEEEEE" },
-        },
+        border: { value: "rgb(229, 229, 229)" },
       },
       sizes: {
         // INFO ChakraUIはデフォルトで0~96などのパラメータを用意済み
