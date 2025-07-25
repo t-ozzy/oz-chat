@@ -4,31 +4,31 @@ interface AccountState {
   username: string;
   email: string;
   password: string;
-  selfIntroduction: string;
+  message: string;
 }
 
 const initialState: AccountState = {
   username: "",
   email: "",
   password: "",
-  selfIntroduction: "",
+  message: "",
 };
 
 export const AccountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    updateRegistrationInfo: (
+    updateAccountInfo: (
       state,
       action: PayloadAction<Partial<AccountState>>,
     ) => {
       return { ...state, ...action.payload };
     },
-    clearRegistrationInfo: () => initialState,
+    clearAccountInfo: () => initialState,
   },
 });
 
-export const { updateRegistrationInfo, clearRegistrationInfo } =
+export const { updateAccountInfo, clearAccountInfo } =
   AccountSlice.actions;
 
 export default AccountSlice.reducer;
