@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
-import { ARTICLE_MAX_LENGTH } from "@/app/articles/const";
+import { POST_MAX_LENGTH } from "@/app/posts/const";
 import { type PostFormInput, schema } from "./schema";
 
 export default function ArticleForm() {
@@ -27,7 +27,7 @@ export default function ArticleForm() {
   });
 
   const contentValue = watch("content") || "";
-  const isOverLimit = contentValue.length > ARTICLE_MAX_LENGTH;
+  const isOverLimit = contentValue.length > POST_MAX_LENGTH;
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
@@ -61,7 +61,7 @@ export default function ArticleForm() {
               color={isOverLimit ? "fontColor.error" : "fontColor.sub"}
               ml="auto"
             >
-              {contentValue.length} / {ARTICLE_MAX_LENGTH} 文字
+              {contentValue.length} / {POST_MAX_LENGTH} 文字
             </Text>
 
             <Button type="submit" w="l" borderRadius="m" m="xl">
