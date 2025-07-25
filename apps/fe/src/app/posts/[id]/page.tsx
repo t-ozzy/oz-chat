@@ -14,7 +14,7 @@ export default function PostDetail() {
   if (!post) return <div>Not Found</div>;
   return (
     <>
-      <Header></Header>
+      <Header />
       <Box
         borderWidth="1px"
         borderColor="black"
