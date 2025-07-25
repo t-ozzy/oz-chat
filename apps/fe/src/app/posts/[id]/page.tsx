@@ -2,13 +2,17 @@
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
+import { useSelector } from "react-redux";
 import { defaultImgUrl, posts } from "@/app/posts/const";
+import type { RootState } from "@/store/store";
 
 export default function PostDetail() {
   const params = useParams();
   const id: string = params.id ? String(params.id) : "";
 
-  const post = posts.find((e) => e.id === id);
+  const postState = useSelector((state: RootState) => state.post);
+  const allPosts = [...postState.posts, ...posts];
+  const post = allPosts.find((e) => e.id === id);
 
   if (!post) return <div>Not Found</div>;
   return (
