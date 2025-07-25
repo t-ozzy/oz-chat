@@ -15,7 +15,7 @@ export const headerPathList: HeaderPathItem[] = [
   },
   {
     context: "< 戻る",
-    match: (pathname) => /^\/posts\/[a-zA-Z0-9_]+$/.test(pathname),
+    match: (pathname) => /^\/posts\/[^/]+$/.test(pathname),
     link: "/posts",
   },
   {
