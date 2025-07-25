@@ -8,7 +8,7 @@ import { posts } from "./const";
 export default function PostsView() {
   return (
     <>
-      <Header></Header>
+      <Header />
       <Center minH="100vh">
         <Posts posts={posts} />
       </Center>
