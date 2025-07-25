@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   Box,
@@ -7,8 +9,12 @@ import {
   HStack,
   Text,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 export default function UserInfo() {
+  const accountState = useSelector((state: RootState) => state.account);
+
   return (
     <Box
       borderColor="border"
@@ -32,14 +38,16 @@ export default function UserInfo() {
               <Grid templateRows="repeat(4, auto)">
                 <GridItem>
                   <Text fontSize="l" fontWeight="medium">
-                    oz
+                    {accountState.username}
                   </Text>
                 </GridItem>
                 <GridItem mb={4}>
-                  <Text color="fontColor.lightGray">@oz-chat</Text>
+                  <Text color="fontColor.lightGray">
+                    @{accountState.username}
+                  </Text>
                 </GridItem>
                 <GridItem mb={4}>
-                  <Box>description</Box>
+                  <Box>{accountState.message}</Box>
                 </GridItem>
                 <GridItem mb={2}>
                   <HStack spaceX="l">
