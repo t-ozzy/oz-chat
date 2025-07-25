@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import accountReducer from "./features/account/accountSlice";
+import postReducer from "./features/post/postSlice";
 
 const persistConfig = {
   key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({ // 新規作成したReducerはここに追加していく
   account: accountReducer,
+  post: postReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
