@@ -15,7 +15,7 @@ export default function PostsView() {
     <>
       <Header />
       <Center minH="100vh">
-        <Posts posts={posts} />
+        <Posts posts={allPosts} />
       </Center>
     </>
   );

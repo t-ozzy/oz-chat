@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
-import { useParams, notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { defaultImgUrl, posts } from "@/app/posts/const";
 import Header from "@/components/header/Header";
