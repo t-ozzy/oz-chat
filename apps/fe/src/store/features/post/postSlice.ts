@@ -4,7 +4,7 @@ interface Post {
   id: string;
   name: string;
   post: string;
-  postTime: string;
+  createdAt: string;
 }
 
 interface PostState {
@@ -24,7 +24,7 @@ export const postSlice = createSlice({
         id: crypto.randomUUID(), // Use UUID for unique ID
         name: action.payload.name,
         post: action.payload.post,
-        postTime: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
       };
       state.posts.push(newPost);
     },
