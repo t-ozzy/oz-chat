@@ -8,11 +8,16 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAccountInfo } from "@/store/features/account/accountSlice";
+import type { RootState } from "@/store/store";
 import { FormFields } from "./fields";
 import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -20,9 +25,22 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
+  const accountState = useSelector((state: RootState) => state.account);
 
-  const onError = (err: unknown) => console.log("Validation Errors:", err);
-  const onSubmit = (data: FormValues) => console.log("Submitted Data:", data);
+  const onError = useCallback(
+    (err: unknown) => console.log("Validation Errors:", err),
+    [],
+  );
+  const onSubmit = useCallback(
+    (data: FormValues) => {
+      dispatch(updateAccountInfo(data));
+    },
+    [dispatch],
+  );
+
+  useEffect(() => {
+    console.log("Current Account State:", accountState);
+  }, [accountState]);
 
   return (
     <Center h="100vh">
