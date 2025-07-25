@@ -9,6 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
 import { ARTICLE_MAX_LENGTH, type ArticleValues, schema } from "./schema";
@@ -27,9 +28,14 @@ export default function ArticleForm() {
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > ARTICLE_MAX_LENGTH;
 
-  const onError = (err: unknown) => console.log("Validation Errors:", err);
-  const onSubmit = (data: ArticleValues) =>
-    console.log("Submitted Data:", data);
+  const onError = useCallback(
+    (err: unknown) => console.log("Validation Errors:", err),
+    [],
+  );
+  const onSubmit = useCallback(
+    (data: ArticleValues) => console.log("Submitted Data:", data),
+    [],
+  );
 
   return (
     <Center>
