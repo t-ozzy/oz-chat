@@ -11,8 +11,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormFields } from "./fields";
 import { type FormValues, schema } from "./schema";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAccountInfo } from "@/store/features/account/accountSlice";
+import { RootState } from "@/store/store";
 
 export default function SignUpForm() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -20,9 +24,13 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
+  const accountState = useSelector((state: RootState) => state.account);
 
   const onError = (err: unknown) => console.log("Validation Errors:", err);
-  const onSubmit = (data: FormValues) => console.log("Submitted Data:", data);
+  const onSubmit = (data: FormValues) => {
+    dispatch(updateAccountInfo(data));
+    console.log("Current Account State:", accountState);
+  };
 
   return (
     <Center h="100vh">
