@@ -1,10 +1,10 @@
 "use client";
 
-import { RootState } from "@/store/store";
 import { Center, Stack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 export default function Home() {
   const router = useRouter();
