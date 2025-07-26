@@ -1,3 +1,4 @@
+"use client";
 import {
   Button,
   Center,
@@ -9,6 +10,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
@@ -34,6 +36,7 @@ export default function PostForm() {
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
+  const router = useRouter();
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
@@ -42,8 +45,9 @@ export default function PostForm() {
   const onSubmit = useCallback(
     (data: PostFormInput) => {
       dispatch(addPost({ name: accountState.username, post: data.content }));
+      router.push("/posts");
     },
-    [dispatch, accountState.username],
+    [dispatch, accountState.username, router],
   );
 
   useEffect(() => {
