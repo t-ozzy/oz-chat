@@ -8,6 +8,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +27,7 @@ export default function SignUpForm() {
     resolver: yupResolver(schema),
   });
   const accountState = useSelector((state: RootState) => state.account);
+  const router = useRouter();
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
@@ -34,8 +36,9 @@ export default function SignUpForm() {
   const onSubmit = useCallback(
     (data: FormValues) => {
       dispatch(updateAccountInfo(data));
+      router.push("/posts");
     },
-    [dispatch],
+    [dispatch, router],
   );
 
   useEffect(() => {
