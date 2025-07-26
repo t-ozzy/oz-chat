@@ -1,3 +1,4 @@
+"use client";
 import {
   Button,
   Center,
@@ -17,6 +18,7 @@ import { POST_MAX_LENGTH } from "@/app/posts/const";
 import { addPost } from "@/store/features/post/postSlice";
 import type { RootState } from "@/store/store";
 import { type PostFormInput, schema } from "./schema";
+import { useRouter } from "next/navigation";
 
 export default function PostForm() {
   const dispatch = useDispatch();
@@ -34,6 +36,7 @@ export default function PostForm() {
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
+  const router = useRouter();
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
@@ -42,8 +45,9 @@ export default function PostForm() {
   const onSubmit = useCallback(
     (data: PostFormInput) => {
       dispatch(addPost({ name: accountState.username, post: data.content }));
+      router.push("/posts");
     },
-    [dispatch, accountState.username],
+    [dispatch, accountState.username, router],
   );
 
   useEffect(() => {
