@@ -10,6 +10,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
@@ -18,7 +19,6 @@ import { POST_MAX_LENGTH } from "@/app/posts/const";
 import { addPost } from "@/store/features/post/postSlice";
 import type { RootState } from "@/store/store";
 import { type PostFormInput, schema } from "./schema";
-import { useRouter } from "next/navigation";
 
 export default function PostForm() {
   const dispatch = useDispatch();
