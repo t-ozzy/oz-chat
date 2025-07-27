@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Box } from "@chakra-ui/react";
+import { Box, HStack, VStack } from "@chakra-ui/react";
 import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
 import { ReduxProvider } from "@/store/provider";
 import Header from "@/components/header/Header";
@@ -22,9 +22,13 @@ export default function RootLayout({
         <GlobalThemeProvider>
           <ReduxProvider>
             <Box bg="background.default" minH="100vh">
-              <SideBar />
-              <Header />
-              {children}
+              <HStack align="top">
+                <SideBar />
+                <VStack align="left">
+                  <Header />
+                  {children}
+                </VStack>
+              </HStack>
             </Box>
           </ReduxProvider>
         </GlobalThemeProvider>
