@@ -25,6 +25,7 @@ export default function Post({
         px="5"
         bg="background.default"
         width="600px"
+        _hover={{ bg: "background.hover" }}
       >
         <HStack align="top">
           <Avatar.Root colorPalette="gray">

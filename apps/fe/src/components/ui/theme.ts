@@ -35,7 +35,9 @@ const config = defineConfig({
           error: { value: "#FF0000" },
         },
         background: {
-          default: { value: "rgb(249, 250, 251)" }, // 画面全体の背景色
+          default: { value: "rgb(255, 255, 255)" }, // 画面全体の背景色
+          sub: { value: "rgb(249, 250, 251)" },
+          hover: { value: "#F9FAFB" },
         },
         border: { value: "rgb(229, 229, 229)" },
       },
