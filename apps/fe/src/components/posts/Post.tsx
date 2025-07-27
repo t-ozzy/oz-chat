@@ -17,7 +17,15 @@ export default function Post({
   img,
 }: PostProps) {
   return (
-    <Link href={`/posts/${postId}`} as={NextLink} textDecoration="none">
+    <Link 
+      href={`/posts/${postId}`} 
+      as={NextLink} 
+      textDecoration="none"
+      _focus={{
+        outline: "none",
+        boxShadow: "none"
+      }}
+    >
       <Box
         borderWidth="1px"
         borderColor="border"
