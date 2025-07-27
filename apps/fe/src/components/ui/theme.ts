@@ -36,7 +36,6 @@ const config = defineConfig({
         },
         background: {
           default: { value: "rgb(249, 250, 251)" }, // 画面全体の背景色
-          sideBar: { value: primary[50] }, // サイドバーの色
         },
         border: { value: "rgb(229, 229, 229)" },
       },

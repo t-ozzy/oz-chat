@@ -8,7 +8,7 @@ export default function SideBar() {
       w="sideBar.width"
       h="sideBar.height"
       p={4}
-      background="background.sideBar"
+      background="background"
       color="fontColor.main"
       borderRightWidth="2px"
       borderColor="border"

@@ -12,7 +12,7 @@ export default function SideBarContent({ href, label, icon: IconComponent }: Sid
       borderRadius="md"
       _hover={{
         bg: "fontColor.main",
-        color: "background.sideBar",
+        color: "background",
       }}
     >
       <Box mr={2}>
