@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Box, HStack, VStack } from "@chakra-ui/react";
 import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
 import { ReduxProvider } from "@/store/provider";
-import Header from "@/components/header/Header";
-import SideBar from "@/components/sidebar/SideBar";
+import ConfigBasedLayout from "@/components/layout/ConfigBasedLayout";
 
 export const metadata: Metadata = {
   title: "oz-chat",
@@ -21,15 +19,7 @@ export default function RootLayout({
       <body>
         <GlobalThemeProvider>
           <ReduxProvider>
-            <Box bg="background.default" minH="100vh">
-              <HStack align="top">
-                <SideBar />
-                <VStack align="left">
-                  <Header />
-                  {children}
-                </VStack>
-              </HStack>
-            </Box>
+            <ConfigBasedLayout>{children}</ConfigBasedLayout>
           </ReduxProvider>
         </GlobalThemeProvider>
       </body>
