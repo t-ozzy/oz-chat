@@ -16,7 +16,7 @@ export default function SideBarContent({
       borderRadius="md"
       _hover={{
         bg: "fontColor.main",
-        color: "background",
+        color: "background.default",
       }}
     >
       <Box mr={2}>
