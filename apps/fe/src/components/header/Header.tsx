@@ -9,31 +9,24 @@ export default function Header() {
   const pathname = usePathname();
   const matchedPath = headerPathList.find((item) => item.match(pathname));
 
-  // マッチするパスがない場合はデフォルトのヘッダーを表示
   if (!matchedPath) {
-    return (
-      <header>
-        <Box px="6" py="4" background="white">
-          <Text fontSize="3xl" fontWeight="bold">
-            ホーム
-          </Text>
-        </Box>
-      </header>
+    console.error(
+      `Header configuration not found for pathname: ${pathname}. Please add configuration to headerPathList.`,
     );
   }
 
   return (
     <header>
       <Box px="6" py="4" background="white">
-        {matchedPath.link ? (
+        {matchedPath?.link ? (
           <Link as={NextLink} href={matchedPath.link}>
             <Text fontSize="3xl" fontWeight="bold">
-              {matchedPath.context}
+              {matchedPath?.context}
             </Text>
           </Link>
         ) : (
           <Text fontSize="3xl" fontWeight="bold">
-            {matchedPath.context}
+            {matchedPath?.context}
           </Text>
         )}
       </Box>
