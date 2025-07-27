@@ -16,30 +16,28 @@ export default function PostDetail() {
 
   if (!post) notFound();
   return (
-    <>
-      <Box
-        borderWidth="1px"
-        borderColor="black"
-        py="4"
-        px="5"
-        bg="white"
-        width="100%"
-        height="500px"
-      >
-        <HStack>
-          <Avatar.Root colorPalette="gray">
-            <Avatar.Fallback name="O Z" />
-            <Avatar.Image src={defaultImgUrl} />
-          </Avatar.Root>
-          <Text fontSize="xl" fontWeight="bold">
-            {post.name}
-          </Text>
-          <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-            {post.createdAt}
-          </Text>
-        </HStack>
-        <Text>{post.post}</Text>
-      </Box>
-    </>
+    <Box
+      borderWidth="1px"
+      borderColor="black"
+      py="4"
+      px="5"
+      bg="white"
+      width="100%"
+      height="500px"
+    >
+      <HStack>
+        <Avatar.Root colorPalette="gray">
+          <Avatar.Fallback name="O Z" />
+          <Avatar.Image src={defaultImgUrl} />
+        </Avatar.Root>
+        <Text fontSize="xl" fontWeight="bold">
+          {post.name}
+        </Text>
+        <Text fontSize="s" color="gray.700" alignSelf="flex-end">
+          {post.createdAt}
+        </Text>
+      </HStack>
+      <Text>{post.post}</Text>
+    </Box>
   );
 }

@@ -1,7 +1,7 @@
-export interface LayoutConfig {
+export type LayoutConfig = {
   showHeader: boolean;
   showSidebar: boolean;
-}
+};
 
 export const layoutConfig: Record<string, LayoutConfig> = {
   "/register": {
@@ -17,4 +17,4 @@ export const layoutConfig: Record<string, LayoutConfig> = {
 
 export function getLayoutConfig(pathname: string): LayoutConfig {
   return layoutConfig[pathname] || layoutConfig.default;
-} 
+}

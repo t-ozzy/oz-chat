@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ConfigBasedLayout from "@/components/layout/ConfigBasedLayout";
 import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
 import { ReduxProvider } from "@/store/provider";
-import ConfigBasedLayout from "@/components/layout/ConfigBasedLayout";
 
 export const metadata: Metadata = {
   title: "oz-chat",

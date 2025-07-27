@@ -1,16 +1,18 @@
 "use client";
 
 import { Box, HStack, VStack } from "@chakra-ui/react";
-import Header from "@/components/header/Header";
-import SideBar from "@/components/sidebar/SideBar";
 import { usePathname } from "next/navigation";
-import { getLayoutConfig } from "@/config/layoutConfig";
+import Header from "@/components/header/Header";
+import { getLayoutConfig } from "@/components/layout/layoutConfig";
+import SideBar from "@/components/sidebar/SideBar";
 
 interface ConfigBasedLayoutProps {
   children: React.ReactNode;
 }
 
-export default function ConfigBasedLayout({ children }: ConfigBasedLayoutProps) {
+export default function ConfigBasedLayout({
+  children,
+}: ConfigBasedLayoutProps) {
   const pathname = usePathname();
   const config = getLayoutConfig(pathname);
 
@@ -25,4 +27,4 @@ export default function ConfigBasedLayout({ children }: ConfigBasedLayoutProps) 
       </HStack>
     </Box>
   );
-} 
+}

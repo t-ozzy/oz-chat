@@ -11,10 +11,8 @@ export default function PostsView() {
   const allPosts = [...postState.posts, ...posts];
 
   return (
-    <>
-      <Center minH="100vh">
-        <Posts posts={allPosts} />
-      </Center>
-    </>
+    <Center minH="100vh">
+      <Posts posts={allPosts} />
+    </Center>
   );
 }
