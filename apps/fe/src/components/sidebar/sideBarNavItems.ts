@@ -8,9 +8,9 @@ export type SideBarNavItem = {
 };
 
 const sideBarNavItems: SideBarNavItem[] = [
-  { href: "/articles", label: "ホーム", icon: FaHome },
+  { href: "/posts", label: "ホーム", icon: FaHome },
   { href: "/profile", label: "プロフィール", icon: FaUser },
-  { href: "/articles/create", label: "記事投稿", icon: FaPencilAlt },
+  { href: "/posts/create", label: "記事投稿", icon: FaPencilAlt },
 ];
 
 export default sideBarNavItems;
