@@ -1,4 +1,4 @@
-import { Avatar, Box, HStack, Link, Text } from "@chakra-ui/react";
+import { Avatar, Box, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 type PostProps = {
@@ -26,19 +26,23 @@ export default function Post({
         bg="background.default"
         width="600px"
       >
-        <HStack>
+        <HStack align="top">
           <Avatar.Root colorPalette="gray">
             <Avatar.Fallback name="O Z" />
             <Avatar.Image src={img} />
           </Avatar.Root>
-          <Text fontSize="xl" fontWeight="bold">
-            {name}
-          </Text>
-          <Text fontSize="s" color="gray.700">
-            {createdAt}
-          </Text>
+          <VStack align="left">
+            <HStack>
+              <Text fontSize="m" fontWeight="bold">
+                {name}
+              </Text>
+              <Text fontSize="s" color="gray.700">
+                {createdAt}
+              </Text>
+            </HStack>
+            <Text>{post}</Text>
+          </VStack>
         </HStack>
-        <Text>{post}</Text>
       </Box>
     </Link>
   );
