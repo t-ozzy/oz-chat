@@ -17,7 +17,15 @@ export default function Header() {
 
   return (
     <header>
-      <Box px="6" py="4" background="background.default">
+      <Box
+        px="6"
+        py="4"
+        background="background.default"
+        borderBottomWidth="2px"
+        borderColor="border"
+        h="80px"
+        display="flex"
+      >
         {matchedPath?.link ? (
           <Link as={NextLink} href={matchedPath.link}>
             <Text fontSize="3xl" fontWeight="bold">

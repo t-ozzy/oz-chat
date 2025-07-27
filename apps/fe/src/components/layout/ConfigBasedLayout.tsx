@@ -18,11 +18,13 @@ export default function ConfigBasedLayout({
 
   return (
     <Box bg="background.default" minH="100vh">
-      <HStack align="top">
+      <HStack align="top" gap="0">
         {config.showSidebar && <SideBar />}
-        <VStack align="left" flex="1">
+        <VStack align="stretch" flex="1" h="100vh" gap="0">
           {config.showHeader && <Header />}
-          {children}
+          <Box flex="1" overflow="auto">
+            {children}
+          </Box>
         </VStack>
       </HStack>
     </Box>

@@ -20,10 +20,10 @@ export default function Post({
     <Link href={`/posts/${postId}`} as={NextLink}>
       <Box
         borderWidth="1px"
-        borderColor="black"
+        borderColor="border"
         py="4"
         px="5"
-        bg="white"
+        bg="background.default"
         width="600px"
       >
         <HStack>
@@ -34,7 +34,7 @@ export default function Post({
           <Text fontSize="xl" fontWeight="bold">
             {name}
           </Text>
-          <Text fontSize="s" color="gray.700" alignSelf="flex-end">
+          <Text fontSize="s" color="gray.700">
             {createdAt}
           </Text>
         </HStack>
