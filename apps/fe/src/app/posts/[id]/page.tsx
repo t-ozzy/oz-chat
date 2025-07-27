@@ -4,7 +4,6 @@ import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
 import { notFound, useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { defaultImgUrl, posts } from "@/app/posts/const";
-import Header from "@/components/header/Header";
 import type { RootState } from "@/store/store";
 
 export default function PostDetail() {
@@ -18,7 +17,6 @@ export default function PostDetail() {
   if (!post) notFound();
   return (
     <>
-      <Header />
       <Box
         borderWidth="1px"
         borderColor="black"
