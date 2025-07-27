@@ -53,6 +53,8 @@ const config = defineConfig({
         fit: { value: "fit-content" }, // コンテンツに合わせてサイズ調整
       },
       spacing: {
+        none: { value: "0px" },
+        xxs: { value: "1px" },
         xs: { value: "2px" },
         s: { value: "4px" },
         m: { value: "6px" },
