@@ -21,9 +21,9 @@ export default function RootLayout({
       <body>
         <GlobalThemeProvider>
           <ReduxProvider>
-            <SideBar />
-            <Header />
             <Box bg="background.default" minH="100vh">
+              <SideBar />
+              <Header />
               {children}
             </Box>
           </ReduxProvider>

@@ -1,8 +1,8 @@
-import { Icon, Link } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import type { SideBarNavItem } from "./sideBarNavItems";
 
-export default function SideBarContent({ href, label, icon }: SideBarNavItem) {
+export default function SideBarContent({ href, label, icon: IconComponent }: SideBarNavItem) {
   return (
     <Link
       as={NextLink}
@@ -15,7 +15,9 @@ export default function SideBarContent({ href, label, icon }: SideBarNavItem) {
         color: "background.sideBar",
       }}
     >
-      <Icon as={icon} mr={2} />
+      <Box mr={2}>
+        <IconComponent />
+      </Box>
       {label}
     </Link>
   );

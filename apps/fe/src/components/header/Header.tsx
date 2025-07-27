@@ -2,14 +2,26 @@
 
 import { Box, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { notFound, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { headerPathList } from "./headerPathList";
 
 export default function Header() {
   const pathname = usePathname();
   const matchedPath = headerPathList.find((item) => item.match(pathname));
 
-  if (!matchedPath) notFound();
+  // マッチするパスがない場合はデフォルトのヘッダーを表示
+  if (!matchedPath) {
+    return (
+      <header>
+        <Box px="6" py="4" background="white">
+          <Text fontSize="3xl" fontWeight="bold">
+            ホーム
+          </Text>
+        </Box>
+      </header>
+    );
+  }
+
   return (
     <header>
       <Box px="6" py="4" background="white">
