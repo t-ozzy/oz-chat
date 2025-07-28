@@ -13,10 +13,14 @@ import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAccountInfo } from "@/store/features/account/accountSlice";
+import type { RootState } from "@/store/store";
 import { FormFields } from "./fields";
 import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -24,6 +28,7 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
+  const usersState = useSelector((state: RootState) => state.users);
   const router = useRouter();
 
   const onError = useCallback(
@@ -32,10 +37,17 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
-      console.log("data: ", data);
+      const user = usersState.users.find(
+        (user) => user.email === data.email && user.password === data.password,
+      );
+      if (!user) {
+        return;
+      }
+
+      dispatch(updateAccountInfo(user));
       router.push("/posts");
     },
-    [router],
+    [router, usersState.users, dispatch],
   );
 
   return (
