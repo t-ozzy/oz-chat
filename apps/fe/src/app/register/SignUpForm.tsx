@@ -25,11 +25,13 @@ export default function SignUpForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
   const accountState = useSelector((state: RootState) => state.account);
+  const usersState = useSelector((state: RootState) => state.users);
   const router = useRouter();
 
   const onError = useCallback(
@@ -38,11 +40,19 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
+      if (usersState.users.find((user) => user.email === data.email)) {
+        setError("email", {
+          type: "manual",
+          message: "このメールアドレスは既に使用されています",
+        });
+        return;
+      }
+
       dispatch(updateAccountInfo(data));
       dispatch(addUser(data));
       router.push("/posts");
     },
-    [dispatch, router],
+    [dispatch, router, usersState.users, setError],
   );
 
   useEffect(() => {
