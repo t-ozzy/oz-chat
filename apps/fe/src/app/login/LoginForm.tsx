@@ -24,6 +24,7 @@ export default function SignUpForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
@@ -41,13 +42,17 @@ export default function SignUpForm() {
         (user) => user.email === data.email && user.password === data.password,
       );
       if (!user) {
+        setError("root.serverError", {
+          type: "manual",
+          message: "メールアドレスまたはパスワードが正しくありません",
+        });
         return;
       }
 
       dispatch(updateAccountInfo(user));
       router.push("/posts");
     },
-    [router, usersState.users, dispatch],
+    [router, usersState.users, dispatch, setError],
   );
 
   return (
@@ -72,6 +77,11 @@ export default function SignUpForm() {
                     アカウントにログインしてください
                   </Fieldset.HelperText>
                 </Center>
+                {errors.root?.serverError && (
+                  <Text color="fontColor.error" textStyle="xs">
+                    {errors.root.serverError.message}
+                  </Text>
+                )}
               </VStack>
 
               <Fieldset.Content>
