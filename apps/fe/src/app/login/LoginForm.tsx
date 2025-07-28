@@ -91,8 +91,10 @@ export default function SignUpForm() {
                   as={NextLink}
                   fontSize="sm"
                   p="2"
-                  borderRadius="md"
+                  borderRadius="m"
                   _hover={{ textDecoration: "none", bg: "gray.100" }}
+                  w="full"
+                  justifyContent="center"
                 >
                   アカウントをお持ちでない方はこちら
                 </Link>
