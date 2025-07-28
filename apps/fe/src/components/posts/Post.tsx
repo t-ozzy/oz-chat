@@ -21,6 +21,7 @@ export default function Post({
       href={`/posts/${postId}`}
       as={NextLink}
       textDecoration="none"
+      width="100%"
       _focus={{
         outline: "none",
         boxShadow: "none",
@@ -31,6 +32,7 @@ export default function Post({
         borderColor="border"
         py="4"
         px="5"
+        width="100%"
         bg="background.default"
         _hover={{ bg: "background.hover" }}
       >

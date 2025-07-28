@@ -24,6 +24,7 @@ export default function Header() {
         borderColor="border"
         padding="16px"
         display="flex"
+        width="100%"
       >
         {matchedPath?.link ? (
           <Link as={NextLink} href={matchedPath.link}>

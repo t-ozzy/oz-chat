@@ -20,9 +20,9 @@ export default function ConfigBasedLayout({
     <Box bg="background.default" minH="100vh">
       <HStack align="top" gap="0">
         {config.showSidebar && <SideBar />}
-        <VStack align="stretch" flex="1" h="100vh" gap="0">
+        <VStack align="stretch" flex="1" h="100vh" gap="0" maxWidth="600px">
           {config.showHeader && <Header />}
-          <Box flex="1" overflow="auto">
+          <Box flex="1" overflow="auto" maxWidth="600px">
             {children}
           </Box>
         </VStack>
