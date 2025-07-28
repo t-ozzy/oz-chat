@@ -15,6 +15,7 @@ import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
+import { addUser } from "@/store/features/account/users/usersSlice";
 import type { RootState } from "@/store/store";
 import { FormFields } from "./fields";
 import { type FormValues, schema } from "./schema";
@@ -38,6 +39,7 @@ export default function SignUpForm() {
   const onSubmit = useCallback(
     (data: FormValues) => {
       dispatch(updateAccountInfo(data));
+      dispatch(addUser(data));
       router.push("/posts");
     },
     [dispatch, router],
