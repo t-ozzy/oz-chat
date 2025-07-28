@@ -1,28 +1,24 @@
 "use client";
 
 import { Input, Text, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import Posts from "@/components/posts/Posts";
-import type { Post } from "@/components/posts/type";
 import type { RootState } from "@/store/store";
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [posts, setPosts] = useState<Post[]>([]);
-  const postState = useSelector((state: RootState) => state.post);
+  const { posts: allPosts } = useSelector((state: RootState) => state.post);
+
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery) {
+      return [];
+    }
+    return allPosts.filter((post) => post.post.includes(searchQuery));
+  }, [searchQuery, allPosts]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
-    if (!event.target.value) {
-      setPosts([]);
-      return;
-    }
-    const filterdPosts = postState.posts.filter((post) =>
-      post.post.includes(event.target.value),
-    );
-
-    setPosts(filterdPosts);
   };
 
   return (
@@ -36,12 +32,12 @@ export default function SearchPage() {
       {searchQuery && (
         <VStack w="100%" alignItems="flex-start">
           <Text fontWeight="bold">"{searchQuery}"の検索結果</Text>
-          <Text fontSize="s" color="gray.500">
-            {posts.length}件の結果
+          <Text fontSize="sm" color="gray.500">
+            {filteredPosts.length}件の結果
           </Text>
         </VStack>
       )}
-      <Posts posts={posts}></Posts>
+      <Posts posts={filteredPosts}></Posts>
     </VStack>
   );
 }
