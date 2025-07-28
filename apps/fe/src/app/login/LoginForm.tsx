@@ -4,10 +4,12 @@ import {
   Center,
   Field,
   Fieldset,
+  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
@@ -54,7 +56,7 @@ export default function SignUpForm() {
                   </Fieldset.Legend>
                 </Center>
                 <Center>
-                  <Fieldset.HelperText mb="m">
+                  <Fieldset.HelperText mb="m" fontSize="s">
                     アカウントにログインしてください
                   </Fieldset.HelperText>
                 </Center>
@@ -80,9 +82,21 @@ export default function SignUpForm() {
             </Card.Body>
 
             <Card.Footer>
-              <Button type="submit" w="full" borderRadius="m">
-                ログイン
-              </Button>
+              <VStack w="full">
+                <Button type="submit" w="full" borderRadius="m">
+                  ログイン
+                </Button>
+                <Link
+                  href="/register"
+                  as={NextLink}
+                  fontSize="sm"
+                  p="2"
+                  borderRadius="md"
+                  _hover={{ textDecoration: "none", bg: "gray.100" }}
+                >
+                  アカウントをお持ちでない方はこちら
+                </Link>
+              </VStack>
             </Card.Footer>
           </Fieldset.Root>
         </form>
