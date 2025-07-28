@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, VStack } from "@chakra-ui/react";
+import { Input, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Posts from "@/components/posts/Posts";
@@ -33,6 +33,14 @@ export default function SearchPage() {
         onChange={handleSearchChange}
         _focus={{ borderColor: "black" }}
       />
+      {searchQuery && (
+        <VStack w="100%" alignItems="flex-start">
+          <Text fontWeight="bold">"{searchQuery}"の検索結果</Text>
+          <Text fontSize="s" color="gray.500">
+            {posts.length}件の結果
+          </Text>
+        </VStack>
+      )}
       <Posts posts={posts}></Posts>
     </VStack>
   );
