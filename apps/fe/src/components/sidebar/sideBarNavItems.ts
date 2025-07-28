@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { FaHome, FaPencilAlt, FaUser } from "react-icons/fa";
+import { FaHome, FaPencilAlt, FaSearch, FaUser } from "react-icons/fa";
 
 export type SideBarNavItem = {
   href: string;
@@ -11,6 +11,7 @@ const sideBarNavItems: SideBarNavItem[] = [
   { href: "/posts", label: "ホーム", icon: FaHome },
   { href: "/profile", label: "プロフィール", icon: FaUser },
   { href: "/posts/create", label: "記事投稿", icon: FaPencilAlt },
+  { href: "/search", label: "検索", icon: FaSearch },
 ];
 
 export default sideBarNavItems;
