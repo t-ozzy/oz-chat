@@ -40,11 +40,24 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
+      let isDuplicate = false;
+      if (usersState.users.find((user) => user.username === data.username)) {
+        setError("username", {
+          type: "manual",
+          message: "すでに使用されているユーザー名です",
+        });
+        isDuplicate = true;
+      }
+
       if (usersState.users.find((user) => user.email === data.email)) {
         setError("email", {
           type: "manual",
           message: "このメールアドレスは既に使用されています",
         });
+        isDuplicate = true;
+      }
+
+      if (isDuplicate) {
         return;
       }
 

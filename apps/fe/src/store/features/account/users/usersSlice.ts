@@ -14,9 +14,12 @@ export const UsersSlice = createSlice({
   initialState,
   reducers: {
     // Userが登録されていない場合、追加する
+    // INFO usernameとemailは重複を許可しない
     addUser: (state, action: PayloadAction<AccountState>) => {
       const existing = state.users.find(
-        (user) => user.email === action.payload.email,
+        (user) =>
+          user.email === action.payload.email ||
+          user.username === action.payload.username,
       );
       if (!existing) {
         state.users.push(action.payload);
