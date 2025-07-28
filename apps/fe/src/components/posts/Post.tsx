@@ -17,13 +17,13 @@ export default function Post({
   img,
 }: PostProps) {
   return (
-    <Link 
-      href={`/posts/${postId}`} 
-      as={NextLink} 
+    <Link
+      href={`/posts/${postId}`}
+      as={NextLink}
       textDecoration="none"
       _focus={{
         outline: "none",
-        boxShadow: "none"
+        boxShadow: "none",
       }}
     >
       <Box
@@ -32,7 +32,6 @@ export default function Post({
         py="4"
         px="5"
         bg="background.default"
-        width="600px"
         _hover={{ bg: "background.hover" }}
       >
         <HStack align="top">

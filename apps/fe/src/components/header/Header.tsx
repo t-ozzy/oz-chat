@@ -20,6 +20,7 @@ export default function Header() {
       <Box
         background="background.default"
         borderBottomWidth="2px"
+        borderRightWidth="2px"
         borderColor="border"
         padding="16px"
         display="flex"
