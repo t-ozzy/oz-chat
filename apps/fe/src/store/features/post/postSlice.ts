@@ -7,11 +7,11 @@ interface Post {
   createdAt: string;
 }
 
-interface PostState {
+interface Posts {
   posts: Post[];
 }
 
-const initialState: PostState = {
+const initialState: Posts = {
   posts: [],
 };
 

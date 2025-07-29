@@ -7,8 +7,8 @@ import type { RootState } from "@/store/store";
 import { posts } from "./const";
 
 export default function PostsView() {
-  const postState = useSelector((state: RootState) => state.post);
-  const allPosts = [...postState.posts, ...posts];
+  const registerdPosts = useSelector((state: RootState) => state.post);
+  const allPosts = [...registerdPosts.posts, ...posts];
 
   return (
     <Center minH="100vh">
