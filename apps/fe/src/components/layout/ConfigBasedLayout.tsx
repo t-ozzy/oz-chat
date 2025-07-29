@@ -22,7 +22,14 @@ export default function ConfigBasedLayout({
         {config.showSidebar && <SideBar />}
         <VStack align="stretch" flex="1" h="100vh" gap="0" maxWidth="600px">
           {config.showHeader && <Header />}
-          <Box flex="1" overflow="auto" maxWidth="600px">
+          <Box
+            flex="1"
+            overflow="auto"
+            css={{
+              "&::-webkit-scrollbar": { display: "none" }, // Chrome等
+              scrollbarWidth: "none", // Firefox
+            }}
+          >
             {children}
           </Box>
         </VStack>
