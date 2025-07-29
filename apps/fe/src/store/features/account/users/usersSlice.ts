@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Account } from "@/store/features/account/type";
 
-interface UsersState {
+interface Users {
   users: Account[];
 }
 
-const initialState: UsersState = {
+const initialState: Users = {
   users: [],
 };
 

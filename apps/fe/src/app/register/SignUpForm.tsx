@@ -30,7 +30,7 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-  const usersState = useSelector((state: RootState) => state.users);
+  const users = useSelector((state: RootState) => state.users);
   const router = useRouter();
 
   const onError = useCallback(
@@ -40,7 +40,7 @@ export default function SignUpForm() {
   const onSubmit = useCallback(
     (data: FormValues) => {
       let isDuplicate = false;
-      if (usersState.users.find((user) => user.username === data.username)) {
+      if (users.users.find((user) => user.username === data.username)) {
         setError("username", {
           type: "manual",
           message: "すでに使用されているユーザー名です",
@@ -48,7 +48,7 @@ export default function SignUpForm() {
         isDuplicate = true;
       }
 
-      if (usersState.users.find((user) => user.email === data.email)) {
+      if (users.users.find((user) => user.email === data.email)) {
         setError("email", {
           type: "manual",
           message: "このメールアドレスは既に使用されています",
@@ -64,7 +64,7 @@ export default function SignUpForm() {
       dispatch(addUser(data));
       router.push("/posts");
     },
-    [dispatch, router, usersState.users, setError],
+    [dispatch, router, users.users, setError],
   );
 
   return (

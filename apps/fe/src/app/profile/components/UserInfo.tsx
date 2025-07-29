@@ -42,9 +42,7 @@ export default function UserInfo() {
                   </Text>
                 </GridItem>
                 <GridItem mb={4}>
-                  <Text color="fontColor.lightGray">
-                    @{account.username}
-                  </Text>
+                  <Text color="fontColor.lightGray">@{account.username}</Text>
                 </GridItem>
                 <GridItem mb={4}>
                   <Box>{account.message}</Box>

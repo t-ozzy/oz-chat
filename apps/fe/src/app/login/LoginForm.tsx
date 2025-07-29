@@ -29,7 +29,7 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-  const usersState = useSelector((state: RootState) => state.users);
+  const users = useSelector((state: RootState) => state.users);
   const router = useRouter();
 
   const onError = useCallback(
@@ -38,7 +38,7 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
-      const user = usersState.users.find(
+      const user = users.users.find(
         (user) => user.email === data.email && user.password === data.password,
       );
       if (!user) {
@@ -52,7 +52,7 @@ export default function SignUpForm() {
       dispatch(updateAccountInfo(user));
       router.push("/posts");
     },
-    [router, usersState.users, dispatch, setError],
+    [router, users.users, dispatch, setError],
   );
 
   return (

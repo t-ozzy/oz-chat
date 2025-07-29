@@ -12,10 +12,7 @@ export const AccountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    updateAccountInfo: (
-      state,
-      action: PayloadAction<Partial<Account>>,
-    ) => {
+    updateAccountInfo: (state, action: PayloadAction<Partial<Account>>) => {
       return { ...state, ...action.payload };
     },
     clearAccountInfo: () => initialState,
