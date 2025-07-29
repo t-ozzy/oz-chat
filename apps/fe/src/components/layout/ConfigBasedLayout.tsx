@@ -21,7 +21,7 @@ export default function ConfigBasedLayout({
       <Center>
         <HStack align="top" gap="0">
           {config.showSidebar && <SideBar />}
-          <VStack align="stretch" flex="1" h="100vh" gap="0" maxWidth="600px">
+          <VStack align="stretch" width="30vw" flex="1" h="100vh" gap="0">
             {config.showHeader && <Header />}
             <Box
               flex="1"
