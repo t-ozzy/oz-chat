@@ -20,10 +20,8 @@ export default function SideBarContent({
       borderRadius="md"
       bg={isActive ? "fontColor.main" : "transparent"}
       color={isActive ? "background.default" : "fontColor.main"}
-      _hover={{
-        bg: "fontColor.main",
-        color: "background.default",
-      }}
+      _hover={!isActive ? { bg: "background.hover" } : {}}
+      textDecoration="none"
     >
       <Box mr={2}>
         <IconComponent />
