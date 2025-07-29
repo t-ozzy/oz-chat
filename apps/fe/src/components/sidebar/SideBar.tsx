@@ -5,15 +5,15 @@ import sideBarNavItems from "./sideBarNavItems";
 export default function SideBar() {
   return (
     <Box
-      w="250px"
+      w="sideBar.width"
       h="sideBar.height"
       p={4}
       background="background.default"
       color="fontColor.main"
       borderRightWidth="2px"
       borderColor="border"
-      maxW="500px"
-      minW="100px"
+      maxW="250px"
+      minW="150px"
     >
       <VStack as="nav" align="stretch" pt={8}>
         {sideBarNavItems.map((item) => (
