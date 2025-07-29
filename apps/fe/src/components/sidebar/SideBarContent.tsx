@@ -22,6 +22,10 @@ export default function SideBarContent({
       color={isActive ? "background.default" : "fontColor.main"}
       _hover={!isActive ? { bg: "background.hover" } : {}}
       textDecoration="none"
+      _focus={{
+        outline: "none",
+        boxShadow: "none",
+      }}
     >
       <Box mr={2}>
         <IconComponent />
