@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
 import { addUser } from "@/store/features/account/users/usersSlice";
 import type { RootState } from "@/store/store";
-import { FormFields } from "./fields";
+import { FormFields } from "./const";
 import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
