@@ -5,12 +5,12 @@ export function formatRelativeTime(dateString: string): string {
     (now.getTime() - targetDate.getTime()) / 1000,
   );
 
-  // 1分以内（投稿直後）
+  // 5秒以内
   if (diffInSeconds < 5) {
     return "今";
   }
 
-  // 1分以内（投稿直後）
+  // 1分以内
   if (diffInSeconds < 60) {
     return `${diffInSeconds}秒前`;
   }
@@ -27,7 +27,7 @@ export function formatRelativeTime(dateString: string): string {
     return `${diffInHours}時間前`;
   }
 
-  // 1日以上 - 年日付を表示
+  // 1日以上 - 年月日を表示
   const year = targetDate.getFullYear();
   const month = targetDate.getMonth() + 1;
   const day = targetDate.getDate();
