@@ -1,7 +1,9 @@
 export function formatRelativeTime(dateString: string): string {
   const now = new Date();
   const targetDate = new Date(dateString);
-  const diffInSeconds = Math.floor((now.getTime() - targetDate.getTime()) / 1000);
+  const diffInSeconds = Math.floor(
+    (now.getTime() - targetDate.getTime()) / 1000,
+  );
 
   // 1分以内（投稿直後）
   if (diffInSeconds < 5) {
@@ -29,6 +31,6 @@ export function formatRelativeTime(dateString: string): string {
   const year = targetDate.getFullYear();
   const month = targetDate.getMonth() + 1;
   const day = targetDate.getDate();
-  
+
   return `${year}年${month}月${day}日`;
-} 
+}
