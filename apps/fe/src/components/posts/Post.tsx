@@ -50,7 +50,7 @@ export default function Post({
                 {createdAt}
               </Text>
             </HStack>
-            <Text>{post}</Text>
+            <Text wordBreak="break-word">{post}</Text>
           </VStack>
         </HStack>
       </Box>
