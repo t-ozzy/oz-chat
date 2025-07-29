@@ -1,5 +1,6 @@
 import { Box, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import type { SideBarNavItem } from "./sideBarNavItems";
 
 export default function SideBarContent({
@@ -7,6 +8,9 @@ export default function SideBarContent({
   label,
   icon: IconComponent,
 }: SideBarNavItem) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <Link
       as={NextLink}
@@ -14,9 +18,13 @@ export default function SideBarContent({
       display="flex"
       p={2}
       borderRadius="md"
-      _hover={{
-        bg: "fontColor.main",
-        color: "background.default",
+      bg={isActive ? "fontColor.main" : "transparent"}
+      color={isActive ? "background.default" : "fontColor.main"}
+      _hover={!isActive ? { bg: "background.hover" } : {}}
+      textDecoration="none"
+      _focus={{
+        outline: "none",
+        boxShadow: "none",
       }}
     >
       <Box mr={2}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Center } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import Posts from "@/components/posts/Posts";
 import type { RootState } from "@/store/store";
@@ -11,8 +11,8 @@ export default function PostsView() {
   const allPosts = [...postState.posts, ...posts];
 
   return (
-    <Center minH="100vh">
+    <Box>
       <Posts posts={allPosts} />
-    </Center>
+    </Box>
   );
 }
