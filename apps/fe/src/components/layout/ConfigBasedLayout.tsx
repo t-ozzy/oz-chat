@@ -17,7 +17,7 @@ export default function ConfigBasedLayout({
   const config = getLayoutConfig(pathname);
 
   return (
-    <Box bg="background.default" minH="100vh">
+    <Box bg="background.sub" minH="100vh">
       <HStack align="top" gap="0">
         {config.showSidebar && <SideBar />}
         <VStack align="stretch" flex="1" h="100vh" gap="0" maxWidth="600px">
