@@ -8,14 +8,14 @@ import type { RootState } from "@/store/store";
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { posts: allPosts } = useSelector((state: RootState) => state.post);
+  const posts = useSelector((state: RootState) => state.post.posts);
 
   const filteredPosts = useMemo(() => {
     if (!searchQuery) {
       return [];
     }
-    return allPosts.filter((post) => post.post.includes(searchQuery));
-  }, [searchQuery, allPosts]);
+    return posts.filter((post) => post.post.includes(searchQuery));
+  }, [searchQuery, posts]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
