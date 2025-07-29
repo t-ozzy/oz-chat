@@ -41,7 +41,7 @@ export default function Post({
             <Avatar.Fallback name="O Z" />
             <Avatar.Image src={img} />
           </Avatar.Root>
-          <VStack align="left" gap="xxs">
+          <VStack align="start" gap="xxs">
             <HStack>
               <Text fontSize="m" fontWeight="bold">
                 {name}
