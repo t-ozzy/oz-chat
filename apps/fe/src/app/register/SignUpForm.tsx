@@ -11,7 +11,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
@@ -30,7 +30,6 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-  const accountState = useSelector((state: RootState) => state.account);
   const usersState = useSelector((state: RootState) => state.users);
   const router = useRouter();
 
@@ -67,10 +66,6 @@ export default function SignUpForm() {
     },
     [dispatch, router, usersState.users, setError],
   );
-
-  useEffect(() => {
-    console.log("Current Account State:", accountState);
-  }, [accountState]);
 
   return (
     <Center h="100vh">
