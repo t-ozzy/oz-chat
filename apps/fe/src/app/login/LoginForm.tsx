@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
 import type { RootState } from "@/store/store";
-import { FormFields } from "./fields";
+import { FormFields } from "./const";
 import { type FormValues, schema } from "./schema";
 
 export default function SignUpForm() {
