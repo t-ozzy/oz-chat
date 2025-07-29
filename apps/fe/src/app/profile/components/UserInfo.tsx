@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 
 export default function UserInfo() {
-  const accountState = useSelector((state: RootState) => state.account);
+  const account = useSelector((state: RootState) => state.account);
 
   return (
     <Box
@@ -38,16 +38,16 @@ export default function UserInfo() {
               <Grid templateRows="repeat(4, auto)">
                 <GridItem>
                   <Text fontSize="l" fontWeight="medium">
-                    {accountState.username}
+                    {account.username}
                   </Text>
                 </GridItem>
                 <GridItem mb={4}>
                   <Text color="fontColor.lightGray">
-                    @{accountState.username}
+                    @{account.username}
                   </Text>
                 </GridItem>
                 <GridItem mb={4}>
-                  <Box>{accountState.message}</Box>
+                  <Box>{account.message}</Box>
                 </GridItem>
                 <GridItem mb={2}>
                   <HStack spaceX="l">

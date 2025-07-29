@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { AccountState } from "./type";
+import type { Account } from "./type";
 
-const initialState: AccountState = {
+const initialState: Account = {
   username: "",
   email: "",
   password: "",
@@ -14,7 +14,7 @@ export const AccountSlice = createSlice({
   reducers: {
     updateAccountInfo: (
       state,
-      action: PayloadAction<Partial<AccountState>>,
+      action: PayloadAction<Partial<Account>>,
     ) => {
       return { ...state, ...action.payload };
     },

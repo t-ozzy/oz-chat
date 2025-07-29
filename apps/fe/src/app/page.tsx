@@ -8,15 +8,15 @@ import type { RootState } from "@/store/store";
 
 export default function Home() {
   const router = useRouter();
-  const accountState = useSelector((state: RootState) => state.account);
+  const account = useSelector((state: RootState) => state.account);
 
   useEffect(() => {
-    if (accountState.username === "") {
+    if (account.username === "") {
       router.push("/register");
     } else {
       router.push("/posts");
     }
-  }, [accountState, router]);
+  }, [account.username, router]);
 
   return (
     <Center>

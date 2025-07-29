@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { AccountState } from "@/store/features/account/type";
+import type { Account } from "@/store/features/account/type";
 
 interface UsersState {
-  users: AccountState[];
+  users: Account[];
 }
 
 const initialState: UsersState = {
@@ -15,7 +15,7 @@ export const UsersSlice = createSlice({
   reducers: {
     // Userが登録されていない場合、追加する
     // INFO usernameとemailは重複を許可しない
-    addUser: (state, action: PayloadAction<AccountState>) => {
+    addUser: (state, action: PayloadAction<Account>) => {
       const existing = state.users.find(
         (user) =>
           user.email === action.payload.email ||

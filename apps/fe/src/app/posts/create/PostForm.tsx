@@ -32,7 +32,7 @@ export default function PostForm() {
     mode: "onChange", // 入力中にバリデーションを実行
   });
   const postState = useSelector((state: RootState) => state.post);
-  const accountState = useSelector((state: RootState) => state.account);
+  const account = useSelector((state: RootState) => state.account);
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -44,10 +44,10 @@ export default function PostForm() {
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
-      dispatch(addPost({ name: accountState.username, post: data.content }));
+      dispatch(addPost({ name: account.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, accountState.username, router],
+    [dispatch, account.username, router],
   );
 
   useEffect(() => {
