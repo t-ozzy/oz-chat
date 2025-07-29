@@ -2,35 +2,14 @@
 
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
-const primary = {
-  /*
-   * サイトのブランドカラー
-   *
-   * 50        => 背景の薄い色
-   * 100 ~ 300 => 軽い強調、背景やボーダー
-   * 400 ~ 600 => メインボタンやリンクの通常色
-   * 700 ~ 900 => 強い強調、テキストやアイコンの濃い色、影
-   */
-  50: "#f2fbe9",
-  100: "#FFFFFF",
-  200: "#b6eb9b",
-  300: "#95cc6a",
-  400: "#78b450",
-  500: "#5a9c36",
-  600: "#3c841c",
-  700: "#2c6614",
-  800: "#1d490d",
-  900: "#0e2b06",
-};
-
 const config = defineConfig({
   theme: {
     tokens: {
       colors: {
         fontColor: {
-          main: { value: primary[900] },
-          sub: { value: primary[600] },
-          link: { value: primary[400] },
+          main: { value: "#0e2b06" },
+          sub: { value: "#3c841c" },
+          link: { value: "#78b450" },
           lightGray: { value: "rgb(229, 229, 229)" },
           error: { value: "#FF0000" },
         },
