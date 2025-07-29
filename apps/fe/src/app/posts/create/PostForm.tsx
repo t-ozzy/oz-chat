@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,7 +31,6 @@ export default function PostForm() {
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
-  const postState = useSelector((state: RootState) => state.post);
   const account = useSelector((state: RootState) => state.account);
 
   const contentValue = watch("content") || "";
@@ -49,10 +48,6 @@ export default function PostForm() {
     },
     [dispatch, account.username, router],
   );
-
-  useEffect(() => {
-    console.log("Posts Data:", postState);
-  }, [postState]);
 
   return (
     <Center>
