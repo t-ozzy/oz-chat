@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,8 +31,9 @@ export default function PostForm() {
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
-  const postState = useSelector((state: RootState) => state.post);
-  const accountState = useSelector((state: RootState) => state.account);
+  const currentAccount = useSelector(
+    (state: RootState) => state.currentAccount,
+  );
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -44,15 +45,11 @@ export default function PostForm() {
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
-      dispatch(addPost({ name: accountState.username, post: data.content }));
+      dispatch(addPost({ name: currentAccount.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, accountState.username, router],
+    [dispatch, currentAccount.username, router],
   );
-
-  useEffect(() => {
-    console.log("Posts Data:", postState);
-  }, [postState]);
 
   return (
     <Center>

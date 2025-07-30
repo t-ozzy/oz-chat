@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { addAccount } from "@/store/features/account/accountsSlice";
 import { updateCurrentAccountInfo } from "@/store/features/account/currentAccountSlice";
 import type { RootState } from "@/store/store";
 import { FormFields } from "./const";
@@ -39,32 +38,22 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
-      let isDuplicate = false;
-      if (accounts.find((account) => account.username === data.username)) {
-        setError("username", {
+      const account = accounts.find(
+        (account) =>
+          account.email === data.email && account.password === data.password,
+      );
+      if (!account) {
+        setError("root.serverError", {
           type: "manual",
-          message: "すでに使用されているユーザー名です",
+          message: "メールアドレスまたはパスワードが正しくありません",
         });
-        isDuplicate = true;
-      }
-
-      if (accounts.find((user) => user.email === data.email)) {
-        setError("email", {
-          type: "manual",
-          message: "このメールアドレスは既に使用されています",
-        });
-        isDuplicate = true;
-      }
-
-      if (isDuplicate) {
         return;
       }
 
-      dispatch(updateCurrentAccountInfo(data));
-      dispatch(addAccount(data));
+      dispatch(updateCurrentAccountInfo(account));
       router.push("/posts");
     },
-    [dispatch, router, accounts, setError],
+    [router, accounts, dispatch, setError],
   );
 
   return (
@@ -81,14 +70,19 @@ export default function SignUpForm() {
                     color="fontColor.main"
                     m="m"
                   >
-                    アカウント登録
+                    ログイン
                   </Fieldset.Legend>
                 </Center>
                 <Center>
-                  <Fieldset.HelperText mb="m">
-                    新しいアカウントを作成してoz chatを始めましょう
+                  <Fieldset.HelperText mb="m" fontSize="s">
+                    アカウントにログインしてください
                   </Fieldset.HelperText>
                 </Center>
+                {errors.root?.serverError && (
+                  <Text color="fontColor.error" textStyle="xs">
+                    {errors.root.serverError.message}
+                  </Text>
+                )}
               </VStack>
 
               <Fieldset.Content>
@@ -113,10 +107,10 @@ export default function SignUpForm() {
             <Card.Footer>
               <VStack w="full">
                 <Button type="submit" w="full" borderRadius="m">
-                  アカウント作成
+                  ログイン
                 </Button>
                 <Link
-                  href="/login"
+                  href="/register"
                   as={NextLink}
                   fontSize="sm"
                   p="2"
@@ -125,7 +119,7 @@ export default function SignUpForm() {
                   w="full"
                   justifyContent="center"
                 >
-                  すでにアカウントをお持ちの方はこちら
+                  アカウントをお持ちでない方はこちら
                 </Link>
               </VStack>
             </Card.Footer>
