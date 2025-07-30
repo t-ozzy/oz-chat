@@ -5,6 +5,7 @@ import { notFound, useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { defaultImgUrl, posts } from "@/app/posts/const";
 import type { RootState } from "@/store/store";
+import { formatRelativeTime } from "@/utils/date";
 
 export default function PostDetail() {
   const params = useParams();
@@ -39,7 +40,7 @@ export default function PostDetail() {
             {post.post}
           </Text>
           <Text fontSize="s" color="gray.500" mt="2">
-            {post.createdAt}
+            {formatRelativeTime(post.createdAt)}
           </Text>
         </VStack>
       </HStack>
