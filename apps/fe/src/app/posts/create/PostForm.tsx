@@ -77,7 +77,7 @@ export default function PostForm() {
             </Field.Root>
             <Text
               fontSize="sm"
-              color={isOverLimit ? "fontColor.error" : "fontColor.sub"}
+              color={isOverLimit ? "fontColor.error" : "gray.400"}
               ml="auto"
             >
               {contentValue.length} / {POST_MAX_LENGTH} 文字
