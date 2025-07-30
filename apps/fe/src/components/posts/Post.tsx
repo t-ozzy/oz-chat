@@ -1,5 +1,6 @@
 import { Avatar, Box, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { formatRelativeTime } from "../../utils/date";
 
 type PostProps = {
   postId: string;
@@ -47,7 +48,7 @@ export default function Post({
                 {name}
               </Text>
               <Text fontSize="s" color="gray.700">
-                {createdAt}
+                {formatRelativeTime(createdAt)}
               </Text>
             </HStack>
             <Text wordBreak="break-word">{post}</Text>
