@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { type KeyboardEvent, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { defaultImgUrl, POST_MAX_LENGTH } from "@/app/posts/const";
@@ -21,12 +21,7 @@ import { type PostFormInput, schema } from "./schema";
 
 export default function PostForm() {
   const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<PostFormInput>({
+  const { register, handleSubmit, watch } = useForm<PostFormInput>({
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
@@ -48,6 +43,13 @@ export default function PostForm() {
     },
     [dispatch, accountState.username, router],
   );
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === "Enter" && event.ctrlKey) {
+      event.preventDefault();
+      handleSubmit(onSubmit, onError)();
+    }
+  };
 
   useEffect(() => {
     console.log("Posts Data:", postState);
@@ -74,6 +76,7 @@ export default function PostForm() {
                 borderRadius="l"
                 focusRingColor="fontColor.main"
                 {...register("content")}
+                onKeyDown={handleKeyDown}
               />
             </Field.Root>
             <Text
