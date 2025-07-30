@@ -39,7 +39,8 @@ export default function SignUpForm() {
   const onSubmit = useCallback(
     (data: FormValues) => {
       const account = accounts.find(
-        (account) => account.email === data.email && account.password === data.password,
+        (account) =>
+          account.email === data.email && account.password === data.password,
       );
       if (!account) {
         setError("root.serverError", {
