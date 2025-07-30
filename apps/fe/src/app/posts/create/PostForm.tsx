@@ -71,6 +71,7 @@ export default function PostForm() {
                 minW="250px"
                 maxW="450px"
                 h="200px"
+                borderRadius="l"
                 focusRingColor="fontColor.main"
                 {...register("content")}
               />
