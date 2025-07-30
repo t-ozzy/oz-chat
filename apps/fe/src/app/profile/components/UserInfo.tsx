@@ -11,10 +11,10 @@ export default function UserInfo() {
 
   return (
     <Box
-      borderColor="border"
-      backgroundColor="background.default"
       w="size.full"
       p="6"
+      backgroundColor="background.default"
+      borderColor="border"
     >
       <HStack align="start">
         <Avatar.Root size="2xl" mr="2">
