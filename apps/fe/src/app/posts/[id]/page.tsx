@@ -10,7 +10,7 @@ export default function PostDetail() {
   const params = useParams();
   const id: string = params.id ? String(params.id) : "";
 
-  const posts = useSelector((state: RootState) => state.post.posts);
+  const posts = useSelector((state: RootState) => state.post);
   const post = posts.find((e) => e.id === id);
 
   if (!post) notFound();
