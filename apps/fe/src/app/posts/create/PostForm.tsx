@@ -56,14 +56,18 @@ export default function PostForm() {
 
   return (
     <Center>
-      <HStack align="start" p="xl">
-        <Icon as={FaUser} size="2xl" m="xl" />
+      <HStack align="start" p="xl" mt="xl">
+        <Icon as={FaUser} boxSize="50px" m="xl" />
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
           <VStack m="xl">
             <Field.Root m="xl">
               <Textarea
                 placeholder="今何してる？"
                 size="xl"
+                w="20vw"
+                minW="250px"
+                maxW="450px"
+                h="200px"
                 {...register("content")}
               />
               {errors.content && (
