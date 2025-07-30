@@ -1,10 +1,10 @@
 "use client";
 import {
+  Avatar,
   Button,
   Center,
   Field,
   HStack,
-  Icon,
   Text,
   Textarea,
   VStack,
@@ -13,9 +13,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { POST_MAX_LENGTH } from "@/app/posts/const";
+import { defaultImgUrl, POST_MAX_LENGTH } from "@/app/posts/const";
 import { addPost } from "@/store/features/post/postSlice";
 import type { RootState } from "@/store/store";
 import { type PostFormInput, schema } from "./schema";
@@ -57,7 +56,11 @@ export default function PostForm() {
   return (
     <Center>
       <HStack align="start" p="xl" mt="xl">
-        <Icon as={FaUser} boxSize="50px" m="xl" />
+        <Avatar.Root colorPalette="gray" size="2xl" mt="20px">
+          <Avatar.Fallback name="O Z" />
+          <Avatar.Image src={defaultImgUrl} />
+        </Avatar.Root>
+
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
           <VStack m="xl">
             <Field.Root m="xl">
