@@ -29,7 +29,7 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-  const users = useSelector((state: RootState) => state.users);
+  const accounts = useSelector((state: RootState) => state.accounts);
   const router = useRouter();
 
   const onError = useCallback(
@@ -38,10 +38,10 @@ export default function SignUpForm() {
   );
   const onSubmit = useCallback(
     (data: FormValues) => {
-      const user = users.users.find(
-        (user) => user.email === data.email && user.password === data.password,
+      const account = accounts.find(
+        (account) => account.email === data.email && account.password === data.password,
       );
-      if (!user) {
+      if (!account) {
         setError("root.serverError", {
           type: "manual",
           message: "メールアドレスまたはパスワードが正しくありません",
@@ -49,10 +49,10 @@ export default function SignUpForm() {
         return;
       }
 
-      dispatch(updateAccountInfo(user));
+      dispatch(updateAccountInfo(account));
       router.push("/posts");
     },
-    [router, users.users, dispatch, setError],
+    [router, accounts, dispatch, setError],
   );
 
   return (

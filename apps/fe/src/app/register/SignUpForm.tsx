@@ -15,7 +15,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccountInfo } from "@/store/features/account/accountSlice";
-import { addUser } from "@/store/features/account/users/usersSlice";
+import { addAccount } from "@/store/features/account/accountsSlice";
 import type { RootState } from "@/store/store";
 import { FormFields } from "./const";
 import { type FormValues, schema } from "./schema";
@@ -30,7 +30,7 @@ export default function SignUpForm() {
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
-  const users = useSelector((state: RootState) => state.users);
+  const accounts = useSelector((state: RootState) => state.accounts);
   const router = useRouter();
 
   const onError = useCallback(
@@ -40,7 +40,7 @@ export default function SignUpForm() {
   const onSubmit = useCallback(
     (data: FormValues) => {
       let isDuplicate = false;
-      if (users.users.find((user) => user.username === data.username)) {
+      if (accounts.find((account) => account.username === data.username)) {
         setError("username", {
           type: "manual",
           message: "すでに使用されているユーザー名です",
@@ -48,7 +48,7 @@ export default function SignUpForm() {
         isDuplicate = true;
       }
 
-      if (users.users.find((user) => user.email === data.email)) {
+      if (accounts.find((user) => user.email === data.email)) {
         setError("email", {
           type: "manual",
           message: "このメールアドレスは既に使用されています",
@@ -61,10 +61,10 @@ export default function SignUpForm() {
       }
 
       dispatch(updateAccountInfo(data));
-      dispatch(addUser(data));
+      dispatch(addAccount(data));
       router.push("/posts");
     },
-    [dispatch, router, users.users, setError],
+    [dispatch, router, accounts, setError],
   );
 
   return (
