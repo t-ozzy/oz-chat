@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
+import { Avatar, Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { notFound, useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { defaultImgUrl, posts } from "@/app/posts/const";
@@ -17,27 +17,32 @@ export default function PostDetail() {
   if (!post) notFound();
   return (
     <Box
+      width="sizes.full"
+      height="auto"
+      pt="4"
+      pb="8"
+      px="6"
+      bg="background.default"
       borderWidth="1px"
-      borderColor="black"
-      py="4"
-      px="5"
-      bg="white"
-      width="100%"
-      height="500px"
+      borderColor="border.default"
     >
-      <HStack>
-        <Avatar.Root colorPalette="gray">
+      <HStack align="top">
+        <Avatar.Root colorPalette="border.default" mr="1">
           <Avatar.Fallback name="O Z" />
           <Avatar.Image src={defaultImgUrl} />
         </Avatar.Root>
-        <Text fontSize="xl" fontWeight="bold">
-          {post.name}
-        </Text>
-        <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-          {post.createdAt}
-        </Text>
+        <VStack align="start">
+          <Text fontSize="l" fontWeight="bold">
+            {post.name}
+          </Text>
+          <Text fontSize="l" wordBreak="break-word">
+            {post.post}
+          </Text>
+          <Text fontSize="s" color="gray.500" mt="2">
+            {post.createdAt}
+          </Text>
+        </VStack>
       </HStack>
-      <Text>{post.post}</Text>
     </Box>
   );
 }
