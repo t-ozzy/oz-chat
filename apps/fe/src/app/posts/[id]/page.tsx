@@ -23,7 +23,7 @@ export default function PostDetail() {
       pb="8"
       px="6"
       bg="background.default"
-      borderWidth="1px"
+      borderWidth="2px"
       borderColor="border.default"
     >
       <HStack align="top">
