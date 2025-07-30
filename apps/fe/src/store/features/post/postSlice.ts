@@ -1,19 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { Post } from "@/components/posts/type";
 
-interface Post {
-  id: string;
-  name: string;
-  post: string;
-  createdAt: string;
-}
-
-interface Posts {
-  posts: Post[];
-}
-
-const initialState: Posts = {
-  posts: [],
-};
+const initialState: Post[] = [];
 
 export const postSlice = createSlice({
   name: "post",
@@ -26,12 +14,10 @@ export const postSlice = createSlice({
         post: action.payload.post,
         createdAt: new Date().toISOString(),
       };
-      state.posts.unshift(newPost); // 先頭に入れる
+      state.unshift(newPost); // 先頭に入れる
     },
     deletePost: (state, action: PayloadAction<string>) => {
-      state.posts = state.posts.filter(
-        (article) => article.id !== action.payload,
-      );
+      state = state.filter((post) => post.id !== action.payload);
     },
   },
 });
