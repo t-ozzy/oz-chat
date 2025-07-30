@@ -74,11 +74,6 @@ export default function PostForm() {
                 focusRingColor="fontColor.main"
                 {...register("content")}
               />
-              {errors.content && (
-                <Text color="fontColor.error" textStyle="xs">
-                  {errors.content?.message}
-                </Text>
-              )}
             </Field.Root>
             <Text
               fontSize="sm"
