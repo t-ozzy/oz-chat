@@ -1,11 +1,11 @@
-name: lint, format and compile
+name: CI
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
-  ci:
+  lint, format and compile:
     runs-on: ubuntu-latest
 
     defaults:
