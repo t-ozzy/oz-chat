@@ -22,13 +22,7 @@ export default function UserInfo() {
           <Avatar.Image src="https://ui-avatars.com/api/?name=oz+chat" />
         </Avatar.Root>
         <VStack align="start" w="100%">
-          <HStack
-            justify="space-between"
-            align="top"
-            mb="1"
-            w="100%"
-            lineHeight="1"
-          >
+          <HStack justify="space-between" align="top" mb="1" w="100%">
             <Box>
               <Text fontSize="28px" fontWeight="bold" lineHeight="1" mb="1.5">
                 {accountState.username}
@@ -50,14 +44,14 @@ export default function UserInfo() {
           </HStack>
           <Text mb="3">{accountState.message}</Text>
           <HStack mb="4">
-            <Text fontSize="s" color="gray.500">
-              <Text as="span" fontSize="m" fontWeight="bold" px="1">
+            <Text fontSize="s" color="gray.500" mr="2">
+              <Text as="span" fontSize="m" fontWeight="bold" pr="1">
                 {follow}
               </Text>
               フォロー中
             </Text>
-            <Text fontSize="s" color="gray.500">
-              <Text as="span" fontSize="m" fontWeight="bold" px="1">
+            <Text fontSize="s" color="gray.500" mr="2">
+              <Text as="span" fontSize="m" fontWeight="bold" pr="1">
                 {follower}
               </Text>
               フォロワー
