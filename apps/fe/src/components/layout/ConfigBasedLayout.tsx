@@ -28,6 +28,7 @@ export default function ConfigBasedLayout({
             h="mainContent.height"
             gap="0"
             minW="400px"
+            bg="background.default"
           >
             {config.showHeader && <Header />}
             <Box
