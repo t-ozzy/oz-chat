@@ -68,6 +68,7 @@ export default function PostForm() {
                 minW="250px"
                 maxW="450px"
                 h="200px"
+                focusRingColor="fontColor.main"
                 {...register("content")}
               />
               {errors.content && (
@@ -91,7 +92,7 @@ export default function PostForm() {
               m="xl"
               bg={
                 contentValue.length && contentValue.length <= POST_MAX_LENGTH
-                  ? "black"
+                  ? "fontColor.main"
                   : "fontColor.lightGray"
               }
               color="white"
