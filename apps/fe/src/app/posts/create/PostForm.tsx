@@ -84,7 +84,7 @@ export default function PostForm() {
               {contentValue.length} / {POST_MAX_LENGTH} 文字
             </Text>
 
-            <Button type="submit" w="l" borderRadius="m" m="xl">
+            <Button type="submit" w="100px" borderRadius="m" m="xl">
               投稿
             </Button>
           </VStack>
