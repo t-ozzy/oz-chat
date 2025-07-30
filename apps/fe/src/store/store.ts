@@ -3,8 +3,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import currentAccountReducer from "./features/account/currentAccountSlice";
 import accountsReducer from "./features/account/accountsSlice";
+import currentAccountReducer from "./features/account/currentAccountSlice";
 import postReducer from "./features/post/postSlice";
 
 const persistConfig = {

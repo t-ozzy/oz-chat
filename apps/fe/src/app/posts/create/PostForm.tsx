@@ -31,7 +31,9 @@ export default function PostForm() {
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
-  const account = useSelector((state: RootState) => state.account);
+  const currentAccount = useSelector(
+    (state: RootState) => state.currentAccount,
+  );
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -43,10 +45,10 @@ export default function PostForm() {
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
-      dispatch(addPost({ name: account.username, post: data.content }));
+      dispatch(addPost({ name: currentAccount.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, account.username, router],
+    [dispatch, currentAccount.username, router],
   );
 
   return (

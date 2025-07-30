@@ -12,13 +12,17 @@ export const CurrentAccountSlice = createSlice({
   name: "currentAccount",
   initialState,
   reducers: {
-    updateCurrentAccountInfo: (state, action: PayloadAction<Partial<Account>>) => {
+    updateCurrentAccountInfo: (
+      state,
+      action: PayloadAction<Partial<Account>>,
+    ) => {
       return { ...state, ...action.payload };
     },
     clearCurrentAccountInfo: () => initialState,
   },
 });
 
-export const { updateCurrentAccountInfo, clearCurrentAccountInfo } = CurrentAccountSlice.actions;
+export const { updateCurrentAccountInfo, clearCurrentAccountInfo } =
+  CurrentAccountSlice.actions;
 
 export default CurrentAccountSlice.reducer;

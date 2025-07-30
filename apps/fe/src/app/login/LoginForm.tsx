@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAccountInfo } from "@/store/features/account/accountSlice";
+import { updateCurrentAccountInfo } from "@/store/features/account/currentAccountSlice";
 import type { RootState } from "@/store/store";
 import { FormFields } from "./const";
 import { type FormValues, schema } from "./schema";
@@ -50,7 +50,7 @@ export default function SignUpForm() {
         return;
       }
 
-      dispatch(updateAccountInfo(account));
+      dispatch(updateCurrentAccountInfo(account));
       router.push("/posts");
     },
     [router, accounts, dispatch, setError],
