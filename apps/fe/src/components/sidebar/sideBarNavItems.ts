@@ -9,7 +9,10 @@ export type SideBarNavItem = {
   label: string;
   icon: IconType;
   onClick: (router: AppRouterInstance, dispatch: Dispatch) => void;
-  color?: string;
+  color: {
+    bg: { main: string; sub: string };
+    font: { main: string; sub: string };
+  };
 };
 
 const sideBarNavItems: SideBarNavItem[] = [
@@ -18,18 +21,30 @@ const sideBarNavItems: SideBarNavItem[] = [
     label: "ホーム",
     icon: FaHome,
     onClick: (router) => router.push("/posts"),
+    color: {
+      bg: { main: "fontColor.main", sub: "transparent" },
+      font: { main: "background.default", sub: "fontColor.main" },
+    },
   },
   {
     href: "/profile",
     label: "プロフィール",
     icon: FaUser,
     onClick: (router) => router.push("/profile"),
+    color: {
+      bg: { main: "fontColor.main", sub: "transparent" },
+      font: { main: "background.default", sub: "fontColor.main" },
+    },
   },
   {
     href: "/posts/create",
     label: "記事投稿",
     icon: FaPencilAlt,
     onClick: (router) => router.push("/posts/create"),
+    color: {
+      bg: { main: "fontColor.main", sub: "transparent" },
+      font: { main: "background.default", sub: "fontColor.main" },
+    },
   },
   {
     href: "/login",
@@ -39,7 +54,10 @@ const sideBarNavItems: SideBarNavItem[] = [
       dispatch(clearCurrentAccountInfo());
       router.push("/login");
     },
-    color: "red.500",
+    color: {
+      bg: { main: "fontColor.main", sub: "transparent" },
+      font: { main: "background.default", sub: "red.600" },
+    },
   },
 ];
 

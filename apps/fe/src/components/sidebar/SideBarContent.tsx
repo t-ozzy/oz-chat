@@ -22,8 +22,8 @@ export default function SideBarContent({
       display="flex"
       p={2}
       borderRadius="md"
-      bg={isActive ? "fontColor.main" : "transparent"}
-      color={isActive ? "background.default" : "fontColor.main"}
+      bg={isActive ? color.bg.main : color.bg.sub}
+      color={isActive ? color.font.main : color.font.sub}
       _hover={!isActive ? { bg: "background.hover" } : {}}
       textDecoration="none"
       _focus={{
@@ -32,7 +32,6 @@ export default function SideBarContent({
       }}
       w="100%"
       justifyContent="flex-start"
-      color={color}
     >
       <Box mr={2}>
         <IconComponent />
