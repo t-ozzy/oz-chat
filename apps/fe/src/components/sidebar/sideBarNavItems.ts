@@ -1,7 +1,13 @@
 import type { Dispatch } from "@reduxjs/toolkit";
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import type { IconType } from "react-icons";
-import { FaHome, FaPencilAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import {
+  FaHome,
+  FaPencilAlt,
+  FaSearch,
+  FaSignOutAlt,
+  FaUser,
+} from "react-icons/fa";
 import { clearCurrentAccountInfo } from "@/store/features/account/currentAccountSlice";
 
 export type SideBarNavItem = {
@@ -31,6 +37,16 @@ const sideBarNavItems: SideBarNavItem[] = [
     label: "プロフィール",
     icon: FaUser,
     onClick: (router) => router.push("/profile"),
+    color: {
+      bg: { main: "fontColor.main", sub: "transparent" },
+      font: { main: "background.default", sub: "fontColor.main" },
+    },
+  },
+  {
+    href: "/search",
+    label: "検索",
+    icon: FaSearch,
+    onClick: (router) => router.push("/search"),
     color: {
       bg: { main: "fontColor.main", sub: "transparent" },
       font: { main: "background.default", sub: "fontColor.main" },

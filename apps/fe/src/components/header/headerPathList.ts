@@ -19,6 +19,10 @@ export const headerPathList: HeaderPathItem[] = [
     link: "/posts",
   },
   {
+    context: "検索",
+    match: (pathname) => pathname === "/search",
+  },
+  {
     context: "ホーム",
     match: (pathname) => pathname === "/posts",
   },
