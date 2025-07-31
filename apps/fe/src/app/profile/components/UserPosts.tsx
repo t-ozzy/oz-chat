@@ -21,7 +21,7 @@ export default function UserPosts() {
         fontWeight="bold"
         borderWidth="1px"
       >
-        ツイート
+        投稿
       </Box>
       {userPosts.length !== 0 ? (
         <Posts posts={userPosts}></Posts>
