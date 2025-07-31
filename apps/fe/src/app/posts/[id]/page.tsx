@@ -3,7 +3,7 @@
 import { Avatar, Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { notFound, useParams } from "next/navigation";
 import { useSelector } from "react-redux";
-import { defaultImgUrl, posts } from "@/app/posts/const";
+import { defaultImgUrl } from "@/app/posts/const";
 import type { RootState } from "@/store/store";
 import { formatRelativeTime } from "@/utils/date";
 
@@ -11,9 +11,8 @@ export default function PostDetail() {
   const params = useParams();
   const id: string = params.id ? String(params.id) : "";
 
-  const postState = useSelector((state: RootState) => state.post);
-  const allPosts = [...postState.posts, ...posts];
-  const post = allPosts.find((e) => e.id === id);
+  const posts = useSelector((state: RootState) => state.post);
+  const post = posts.find((e) => e.id === id);
 
   if (!post) notFound();
   return (

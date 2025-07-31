@@ -17,7 +17,7 @@ export default function SideBar() {
     >
       <VStack as="nav" align="stretch" pt={8}>
         {sideBarNavItems.map((item) => (
-          <SideBarContent {...item} key={item.href} />
+          <SideBarContent {...item} key={item.label} />
         ))}
       </VStack>
     </Box>

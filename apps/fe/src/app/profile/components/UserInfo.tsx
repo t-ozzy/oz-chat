@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 
 export default function UserInfo() {
-  const accountState = useSelector((state: RootState) => state.account);
+  const currentAccount = useSelector(
+    (state: RootState) => state.currentAccount
+  );
   const follow = 0;
   const follower = 0;
 
@@ -26,9 +28,9 @@ export default function UserInfo() {
           <HStack justify="space-between" align="top" mb="1" w="100%">
             <Box>
               <Text fontSize="28px" fontWeight="bold" lineHeight="1" mb="1.5">
-                {accountState.username}
+                {currentAccount.username}
               </Text>
-              <Text color="gray.500">@{accountState.username}</Text>
+              <Text color="gray.500">@{currentAccount.username}</Text>
             </Box>
             <Button
               size="md"
@@ -44,7 +46,7 @@ export default function UserInfo() {
             </Button>
           </HStack>
           <Text mb="3" wordBreak="break-word">
-            {accountState.message}
+            {currentAccount.message}
           </Text>
           <HStack mb="4">
             <Text fontSize="s" color="gray.500" mr="2">

@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { type KeyboardEvent, useCallback, useEffect } from "react";
+import { type KeyboardEvent, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { defaultImgUrl, POST_MAX_LENGTH } from "@/app/posts/const";
@@ -30,8 +30,9 @@ export default function PostForm() {
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
-  const postState = useSelector((state: RootState) => state.post);
-  const accountState = useSelector((state: RootState) => state.account);
+  const currentAccount = useSelector(
+    (state: RootState) => state.currentAccount
+  );
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -39,14 +40,14 @@ export default function PostForm() {
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
-    [],
+    []
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
-      dispatch(addPost({ name: accountState.username, post: data.content }));
+      dispatch(addPost({ name: currentAccount.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, accountState.username, router],
+    [dispatch, currentAccount.username, router]
   );
 
   const handleKeyDown = useCallback(
@@ -56,12 +57,8 @@ export default function PostForm() {
         handleSubmit(onSubmit, onError)();
       }
     },
-    [onSubmit, onError, handleSubmit],
+    [onSubmit, onError, handleSubmit]
   );
-
-  useEffect(() => {
-    console.log("Posts Data:", postState);
-  }, [postState]);
 
   return (
     <Center>

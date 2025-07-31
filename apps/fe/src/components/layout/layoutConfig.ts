@@ -4,7 +4,15 @@ export type LayoutConfig = {
 };
 
 export const layoutConfig: Record<string, LayoutConfig> = {
+  "/": {
+    showHeader: false,
+    showSidebar: false,
+  },
   "/register": {
+    showHeader: false,
+    showSidebar: false,
+  },
+  "/login": {
     showHeader: false,
     showSidebar: false,
   },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AuthGuard from "@/components/auth/AuthGuard";
 import ConfigBasedLayout from "@/components/layout/ConfigBasedLayout";
 import { GlobalThemeProvider } from "@/components/ui/GlobalThemeProvider";
 import { ReduxProvider } from "@/store/provider";
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body>
         <GlobalThemeProvider>
           <ReduxProvider>
-            <ConfigBasedLayout>{children}</ConfigBasedLayout>
+            <AuthGuard>
+              <ConfigBasedLayout>{children}</ConfigBasedLayout>
+            </AuthGuard>
           </ReduxProvider>
         </GlobalThemeProvider>
       </body>
