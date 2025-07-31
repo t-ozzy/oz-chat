@@ -1,5 +1,6 @@
-import { Avatar, Box, HStack, Link, Text } from "@chakra-ui/react";
+import { Avatar, Box, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { formatRelativeTime } from "../../utils/date";
 
 type PostProps = {
   postId: string;
@@ -17,28 +18,42 @@ export default function Post({
   img,
 }: PostProps) {
   return (
-    <Link href={`/posts/${postId}`} as={NextLink}>
+    <Link
+      href={`/posts/${postId}`}
+      as={NextLink}
+      textDecoration="none"
+      width="100%"
+      _focus={{
+        outline: "none",
+        boxShadow: "none",
+      }}
+    >
       <Box
         borderWidth="1px"
-        borderColor="black"
+        borderColor="border"
         py="4"
         px="5"
-        bg="white"
-        width="600px"
+        width="100%"
+        bg="background.default"
+        _hover={{ bg: "background.hover" }}
       >
-        <HStack>
+        <HStack align="top">
           <Avatar.Root colorPalette="gray">
             <Avatar.Fallback name="O Z" />
             <Avatar.Image src={img} />
           </Avatar.Root>
-          <Text fontSize="xl" fontWeight="bold">
-            {name}
-          </Text>
-          <Text fontSize="s" color="gray.700" alignSelf="flex-end">
-            {createdAt}
-          </Text>
+          <VStack align="start" gap="xxs">
+            <HStack>
+              <Text fontSize="m" fontWeight="bold">
+                {name}
+              </Text>
+              <Text fontSize="s" color="gray.700">
+                {formatRelativeTime(createdAt)}
+              </Text>
+            </HStack>
+            <Text wordBreak="break-word">{post}</Text>
+          </VStack>
         </HStack>
-        <Text>{post}</Text>
       </Box>
     </Link>
   );

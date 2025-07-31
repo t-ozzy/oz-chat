@@ -12,10 +12,12 @@ export default function SideBar() {
       color="fontColor.main"
       borderRightWidth="2px"
       borderColor="border"
+      maxW="250px"
+      minW="150px"
     >
       <VStack as="nav" align="stretch" pt={8}>
         {sideBarNavItems.map((item) => (
-          <SideBarContent {...item} key={item.href} />
+          <SideBarContent {...item} key={item.label} />
         ))}
       </VStack>
     </Box>

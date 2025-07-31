@@ -1,21 +1,20 @@
 "use client";
 import {
+  Avatar,
   Button,
   Center,
   Field,
   HStack,
-  Icon,
   Text,
   Textarea,
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { type KeyboardEvent, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { POST_MAX_LENGTH } from "@/app/posts/const";
+import { defaultImgUrl, POST_MAX_LENGTH } from "@/app/posts/const";
 import { addPost } from "@/store/features/post/postSlice";
 import type { RootState } from "@/store/store";
 import { type PostFormInput, schema } from "./schema";
@@ -26,13 +25,14 @@ export default function PostForm() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { isValid },
   } = useForm<PostFormInput>({
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
-  const postState = useSelector((state: RootState) => state.post);
-  const accountState = useSelector((state: RootState) => state.account);
+  const currentAccount = useSelector(
+    (state: RootState) => state.currentAccount,
+  );
 
   const contentValue = watch("content") || "";
   const isOverLimit = contentValue.length > POST_MAX_LENGTH;
@@ -44,43 +44,63 @@ export default function PostForm() {
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
-      dispatch(addPost({ name: accountState.username, post: data.content }));
+      dispatch(addPost({ name: currentAccount.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, accountState.username, router],
+    [dispatch, currentAccount.username, router],
   );
 
-  useEffect(() => {
-    console.log("Posts Data:", postState);
-  }, [postState]);
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLTextAreaElement>) => {
+      if (event.key === "Enter" && event.ctrlKey) {
+        event.preventDefault();
+        handleSubmit(onSubmit, onError)();
+      }
+    },
+    [onSubmit, onError, handleSubmit],
+  );
 
   return (
     <Center>
-      <HStack align="start" p="xl">
-        <Icon as={FaUser} size="2xl" m="xl" />
+      <HStack align="start" p="xl" mt="xl">
+        <Avatar.Root colorPalette="gray" size="2xl" mt="20px">
+          <Avatar.Fallback name="O Z" />
+          <Avatar.Image src={defaultImgUrl} />
+        </Avatar.Root>
+
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
           <VStack m="xl">
             <Field.Root m="xl">
               <Textarea
                 placeholder="今何してる？"
                 size="xl"
+                w="20vw"
+                minW="250px"
+                maxW="450px"
+                h="200px"
+                borderRadius="l"
+                focusRingColor="fontColor.main"
                 {...register("content")}
+                onKeyDown={handleKeyDown}
               />
-              {errors.content && (
-                <Text color="fontColor.error" textStyle="xs">
-                  {errors.content?.message}
-                </Text>
-              )}
             </Field.Root>
             <Text
               fontSize="sm"
-              color={isOverLimit ? "fontColor.error" : "fontColor.sub"}
+              color={isOverLimit ? "fontColor.error" : "gray.400"}
               ml="auto"
             >
               {contentValue.length} / {POST_MAX_LENGTH} 文字
             </Text>
 
-            <Button type="submit" w="l" borderRadius="m" m="xl">
+            <Button
+              type="submit"
+              w="100px"
+              borderRadius="m"
+              m="xl"
+              bg={isValid ? "fontColor.main" : "fontColor.lightGray"}
+              color="white"
+              disabled={!isValid}
+            >
               投稿
             </Button>
           </VStack>

@@ -17,15 +17,23 @@ export default function Header() {
 
   return (
     <header>
-      <Box px="6" py="4" background="background.default">
+      <Box
+        background="background.default"
+        borderBottomWidth="2px"
+        borderRightWidth="2px"
+        borderColor="border"
+        padding="16px"
+        display="flex"
+        width="100%"
+      >
         {matchedPath?.link ? (
           <Link as={NextLink} href={matchedPath.link}>
-            <Text fontSize="3xl" fontWeight="bold">
+            <Text fontSize="l" fontWeight="bold">
               {matchedPath?.context}
             </Text>
           </Link>
         ) : (
-          <Text fontSize="3xl" fontWeight="bold">
+          <Text fontSize="l" fontWeight="bold">
             {matchedPath?.context}
           </Text>
         )}
