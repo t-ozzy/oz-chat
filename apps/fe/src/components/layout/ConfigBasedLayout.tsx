@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, HStack, VStack } from "@chakra-ui/react";
+import { Box, Center, HStack, VStack } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import Header from "@/components/header/Header";
 import { getLayoutConfig } from "@/components/layout/layoutConfig";
@@ -17,14 +17,33 @@ export default function ConfigBasedLayout({
   const config = getLayoutConfig(pathname);
 
   return (
-    <Box bg="background.default" minH="100vh">
-      <HStack align="top">
-        {config.showSidebar && <SideBar />}
-        <VStack align="left" flex="1">
-          {config.showHeader && <Header />}
-          {children}
-        </VStack>
-      </HStack>
+    <Box bg="background.sub" minH="100vh">
+      <Center>
+        <HStack align="top" gap="0">
+          {config.showSidebar && <SideBar />}
+          <VStack
+            align="stretch"
+            width="mainContent.width"
+            flex="1"
+            h="mainContent.height"
+            gap="0"
+            minW="400px"
+            bg="background.default"
+          >
+            {config.showHeader && <Header />}
+            <Box
+              flex="1"
+              overflow="auto"
+              css={{
+                "&::-webkit-scrollbar": { display: "none" }, // Chrome等
+                scrollbarWidth: "none", // Firefox
+              }}
+            >
+              {children}
+            </Box>
+          </VStack>
+        </HStack>
+      </Center>
     </Box>
   );
 }

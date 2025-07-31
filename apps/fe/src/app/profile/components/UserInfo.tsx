@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Grid,
-  GridItem,
-  HStack,
-  Text,
-} from "@chakra-ui/react";
+import { Avatar, Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 
@@ -16,60 +8,62 @@ export default function UserInfo() {
   const currentAccount = useSelector(
     (state: RootState) => state.currentAccount,
   );
+  const follow = 0;
+  const follower = 0;
 
   return (
     <Box
-      borderColor="border"
+      w="size.full"
+      p="6"
       backgroundColor="background.default"
-      width="fit-content"
-      p={6}
+      borderWidth="1px"
+      borderColor="border"
     >
-      <Grid>
-        <GridItem border="2px solid" borderColor="border" pt={5} pl={3}>
-          <Grid templateColumns="min-content min-content min-content">
-            {/* 左セクション */}
-            <GridItem display="flex" justifyContent="flex-end">
-              <Avatar.Root size="2xl">
-                <Avatar.Fallback name="profile picture" />
-                <Avatar.Image src="https://ui-avatars.com/api/?name=oz+chat" />
-              </Avatar.Root>
-            </GridItem>
-
-            {/* 中央セクションを縦3分割 */}
-            <GridItem minW="200px" pl={2}>
-              <Grid templateRows="repeat(4, auto)">
-                <GridItem>
-                  <Text fontSize="l" fontWeight="medium">
-                    {currentAccount.username}
-                  </Text>
-                </GridItem>
-                <GridItem mb={4}>
-                  <Text color="fontColor.lightGray">
-                    @{currentAccount.username}
-                  </Text>
-                </GridItem>
-                <GridItem mb={4}>
-                  <Box>{currentAccount.message}</Box>
-                </GridItem>
-                <GridItem mb={2}>
-                  <HStack spaceX="l">
-                    <Text fontSize="s">0フォロー中</Text>
-                    <Text fontSize="s">0フォロワー</Text>
-                  </HStack>
-                </GridItem>
-              </Grid>
-            </GridItem>
-
-            {/* 右セクション */}
-            <GridItem pr={2}>
-              <Button size="lg">プロフィール編集</Button>
-            </GridItem>
-          </Grid>
-        </GridItem>
-        <GridItem>
-          <Text pl={4}>投稿</Text>
-        </GridItem>
-      </Grid>
+      <HStack align="start">
+        <Avatar.Root size="2xl" mr="2">
+          <Avatar.Fallback name="profile picture" />
+          <Avatar.Image src="https://ui-avatars.com/api/?name=oz+chat" />
+        </Avatar.Root>
+        <VStack align="start" w="100%">
+          <HStack justify="space-between" align="top" mb="1" w="100%">
+            <Box>
+              <Text fontSize="28px" fontWeight="bold" lineHeight="1" mb="1.5">
+                {currentAccount.username}
+              </Text>
+              <Text color="gray.500">@{currentAccount.username}</Text>
+            </Box>
+            <Button
+              size="md"
+              bg="background.default"
+              borderColor="gray.300"
+              borderWidth="1px"
+              borderRadius="8px"
+              _hover={{ bg: "gray.100" }}
+            >
+              <Text color="black" fontSize="13px">
+                プロフィール編集
+              </Text>
+            </Button>
+          </HStack>
+          <Text mb="3" wordBreak="break-word">
+            {currentAccount.message}
+          </Text>
+          <HStack mb="4">
+            <Text fontSize="s" color="gray.500" mr="2">
+              <Text as="span" fontSize="m" fontWeight="bold" pr="1">
+                {follow}
+              </Text>
+              フォロー中
+            </Text>
+            <Text fontSize="s" color="gray.500" mr="2">
+              <Text as="span" fontSize="m" fontWeight="bold" pr="1">
+                {follower}
+              </Text>
+              フォロワー
+            </Text>
+          </HStack>
+        </VStack>
+      </HStack>
     </Box>
   );
 }

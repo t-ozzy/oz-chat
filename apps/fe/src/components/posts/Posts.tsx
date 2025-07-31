@@ -11,7 +11,7 @@ type PostsProps = {
 
 export default function Posts({ posts }: PostsProps) {
   return (
-    <List.Root listStyle="none">
+    <List.Root listStyle="none" width="100%">
       {posts.map((e) => {
         return (
           <List.Item key={e.id}>
