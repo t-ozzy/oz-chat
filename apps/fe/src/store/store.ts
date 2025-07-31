@@ -28,6 +28,10 @@ export const store = configureStore({
       serializableCheck: {
         // Ignore these action types
         ignoredActions: ["persist/PERSIST"],
+        // Ignore these field paths in all actions
+        ignoredActionPaths: ["payload.createdAt"],
+        // Ignore these paths in the state
+        ignoredPaths: ["post"],
       },
     }),
 });

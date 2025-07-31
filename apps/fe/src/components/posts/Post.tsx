@@ -6,7 +6,7 @@ type PostProps = {
   postId: string;
   name: string;
   post: string;
-  createdAt: string;
+  createdAt: Date;
   img: string;
 };
 
