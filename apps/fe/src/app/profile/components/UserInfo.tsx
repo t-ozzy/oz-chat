@@ -14,6 +14,7 @@ export default function UserInfo() {
       w="size.full"
       p="6"
       backgroundColor="background.default"
+      borderWidth="1px"
       borderColor="border"
     >
       <HStack align="start">
