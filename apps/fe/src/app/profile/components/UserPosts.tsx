@@ -2,7 +2,7 @@
 
 import Posts from "@/components/posts/Posts";
 import { RootState } from "@/store/store";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 export default function UserPosts() {
@@ -15,7 +15,7 @@ export default function UserPosts() {
   return (
     <>
       <Box
-        p="4"
+        p="3"
         bg="Background.default"
         fontSize="m"
         fontWeight="bold"
@@ -23,7 +23,15 @@ export default function UserPosts() {
       >
         ツイート
       </Box>
-      <Posts posts={userPosts}></Posts>
+      {userPosts.length !== 0 ? (
+        <Posts posts={userPosts}></Posts>
+      ) : (
+        <Box display="flex" justifyContent="center">
+          <Text mt="5" color="gray.500">
+            まだツイートがありません
+          </Text>
+        </Box>
+      )}
     </>
   );
 }

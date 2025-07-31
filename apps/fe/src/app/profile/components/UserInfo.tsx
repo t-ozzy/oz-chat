@@ -43,7 +43,9 @@ export default function UserInfo() {
               </Text>
             </Button>
           </HStack>
-          <Text mb="3">{accountState.message}</Text>
+          <Text mb="3" wordBreak="break-word">
+            {accountState.message}
+          </Text>
           <HStack mb="4">
             <Text fontSize="s" color="gray.500" mr="2">
               <Text as="span" fontSize="m" fontWeight="bold" pr="1">
