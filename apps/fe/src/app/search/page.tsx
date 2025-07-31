@@ -14,7 +14,10 @@ export default function SearchPage() {
     if (!searchQuery) {
       return [];
     }
-    return posts.filter((post) => post.post.includes(searchQuery));
+    // INFO 大文字と小文字を区別しない検索でUXを向上
+    return posts.filter((post) =>
+      post.post.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
   }, [searchQuery, posts]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
