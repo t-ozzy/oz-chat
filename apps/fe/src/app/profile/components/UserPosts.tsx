@@ -28,7 +28,7 @@ export default function UserPosts() {
       ) : (
         <Box display="flex" justifyContent="center">
           <Text mt="5" color="gray.500">
-            まだツイートがありません
+            まだ投稿がありません
           </Text>
         </Box>
       )}
