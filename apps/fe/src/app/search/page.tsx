@@ -24,7 +24,7 @@ export default function SearchPage() {
   const renderContent = () => {
     if (!searchQuery) {
       return (
-        <Center p="md">
+        <Center p="md" m="l">
           <Text color="gray.500">キーワードを入力して検索してください</Text>
         </Center>
       );
@@ -33,7 +33,7 @@ export default function SearchPage() {
       return <Posts posts={filteredPosts} />;
     }
     return (
-      <Center p="md">
+      <Center p="md" m="l">
         <Text color="gray.500">検索結果が見つかりませんでした</Text>
       </Center>
     );
@@ -52,7 +52,9 @@ export default function SearchPage() {
       {searchQuery && (
         <Box border="border" borderWidth="1px" w="100%" p="l">
           <VStack w="100%" alignItems="flex-start">
-            <Text fontWeight="bold">"{searchQuery}"の検索結果</Text>
+            <Text fontWeight="bold" wordBreak="break-word">
+              "{searchQuery}"の検索結果
+            </Text>
             <Text fontSize="sm" color="gray.500">
               {filteredPosts.length}件の結果
             </Text>
