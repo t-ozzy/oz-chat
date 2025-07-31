@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Input, Text, VStack } from "@chakra-ui/react";
+import { Box, Center, Input, Text, VStack } from "@chakra-ui/react";
 import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import Posts from "@/components/posts/Posts";
@@ -19,6 +19,24 @@ export default function SearchPage() {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
+  };
+
+  const renderContent = () => {
+    if (!searchQuery) {
+      return (
+        <Center p="md">
+          <Text color="gray.500">キーワードを入力して検索してください</Text>
+        </Center>
+      );
+    }
+    if (filteredPosts.length) {
+      return <Posts posts={filteredPosts} />;
+    }
+    return (
+      <Center p="md">
+        <Text color="gray.500">検索結果が見つかりませんでした</Text>
+      </Center>
+    );
   };
 
   return (
@@ -41,13 +59,7 @@ export default function SearchPage() {
           </VStack>
         </Box>
       )}
-      <Box m="l">
-        {searchQuery ? (
-          <Posts posts={filteredPosts}></Posts>
-        ) : (
-          <Text color="gray.500">キーワードを入力して検索してください</Text>
-        )}
-      </Box>
+      <Box w="100%">{renderContent()}</Box>
     </VStack>
   );
 }
