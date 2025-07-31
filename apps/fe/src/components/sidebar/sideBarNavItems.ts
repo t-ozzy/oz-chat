@@ -8,6 +8,7 @@ export type SideBarNavItem = {
   label: string;
   icon: IconType;
   onClick: (router: AppRouterInstance, dispatch: Dispatch) => void;
+  color?: string;
 };
 
 const sideBarNavItems: SideBarNavItem[] = [
@@ -33,6 +34,7 @@ const sideBarNavItems: SideBarNavItem[] = [
       dispatch(clearCurrentAccountInfo());
       router.push("/login");
     },
+    color: "red.500",
   },
 ];
 

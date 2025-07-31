@@ -7,6 +7,7 @@ export default function SideBarContent({
   label,
   icon: IconComponent,
   onClick,
+  color,
 }: SideBarNavItem) {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function SideBarContent({
       }}
       w="100%"
       justifyContent="flex-start"
+      color={color}
     >
       <Box mr={2}>
         <IconComponent />
