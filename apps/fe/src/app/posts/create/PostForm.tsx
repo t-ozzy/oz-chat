@@ -21,7 +21,12 @@ import { type PostFormInput, schema } from "./schema";
 
 export default function PostForm() {
   const dispatch = useDispatch();
-  const { register, handleSubmit, watch } = useForm<PostFormInput>({
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { isValid },
+  } = useForm<PostFormInput>({
     resolver: yupResolver(schema),
     mode: "onChange", // 入力中にバリデーションを実行
   });
@@ -44,12 +49,15 @@ export default function PostForm() {
     [dispatch, accountState.username, router],
   );
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && event.ctrlKey) {
-      event.preventDefault();
-      handleSubmit(onSubmit, onError)();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLTextAreaElement>) => {
+      if (event.key === "Enter" && event.ctrlKey) {
+        event.preventDefault();
+        handleSubmit(onSubmit, onError)();
+      }
+    },
+    [onSubmit, onError, handleSubmit],
+  );
 
   useEffect(() => {
     console.log("Posts Data:", postState);
@@ -92,12 +100,9 @@ export default function PostForm() {
               w="100px"
               borderRadius="m"
               m="xl"
-              bg={
-                contentValue.length && contentValue.length <= POST_MAX_LENGTH
-                  ? "fontColor.main"
-                  : "fontColor.lightGray"
-              }
+              bg={isValid ? "fontColor.main" : "fontColor.lightGray"}
               color="white"
+              disabled={!isValid}
             >
               投稿
             </Button>
