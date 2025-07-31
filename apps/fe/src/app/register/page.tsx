@@ -1,7 +1,12 @@
 "use client";
 
+import { Box } from "@chakra-ui/react";
 import SignUpForm from "./SignUpForm";
 
 export default function Home() {
-  return <SignUpForm />;
+  return (
+    <Box bg="background.sub">
+      <SignUpForm />
+    </Box>
+  );
 }
