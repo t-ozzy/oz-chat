@@ -1,16 +1,21 @@
-import { Box, Link } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Button } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import type { SideBarNavItem } from "./sideBarNavItems";
 
 export default function SideBarContent({
-  href,
   label,
   icon: IconComponent,
+  onClick,
+  color,
 }: SideBarNavItem) {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   return (
-    <Link
-      as={NextLink}
-      href={href}
+    <Button
+      variant="ghost"
+      onClick={() => onClick(router, dispatch)}
       display="flex"
       p={2}
       borderRadius="md"
@@ -18,11 +23,14 @@ export default function SideBarContent({
         bg: "fontColor.main",
         color: "background.default",
       }}
+      w="100%"
+      justifyContent="flex-start"
+      color={color}
     >
       <Box mr={2}>
         <IconComponent />
       </Box>
       {label}
-    </Link>
+    </Button>
   );
 }
