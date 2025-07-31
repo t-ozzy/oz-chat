@@ -31,7 +31,7 @@ export default function PostForm() {
     mode: "onChange", // 入力中にバリデーションを実行
   });
   const currentAccount = useSelector(
-    (state: RootState) => state.currentAccount
+    (state: RootState) => state.currentAccount,
   );
 
   const contentValue = watch("content") || "";
@@ -40,14 +40,14 @@ export default function PostForm() {
 
   const onError = useCallback(
     (err: unknown) => console.log("Validation Errors:", err),
-    []
+    [],
   );
   const onSubmit = useCallback(
     (data: PostFormInput) => {
       dispatch(addPost({ name: currentAccount.username, post: data.content }));
       router.push("/posts");
     },
-    [dispatch, currentAccount.username, router]
+    [dispatch, currentAccount.username, router],
   );
 
   const handleKeyDown = useCallback(
@@ -57,7 +57,7 @@ export default function PostForm() {
         handleSubmit(onSubmit, onError)();
       }
     },
-    [onSubmit, onError, handleSubmit]
+    [onSubmit, onError, handleSubmit],
   );
 
   return (

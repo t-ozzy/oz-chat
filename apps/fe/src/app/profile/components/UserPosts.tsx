@@ -7,8 +7,10 @@ import type { RootState } from "@/store/store";
 
 export default function UserPosts() {
   const postState = useSelector((state: RootState) => state.post);
-  const currentAcountState = useSelector((state: RootState) => state.account);
-  const userPosts = postState.posts.filter(
+  const currentAcountState = useSelector(
+    (state: RootState) => state.currentAccount,
+  );
+  const userPosts = postState.filter(
     (e) => e.name === currentAcountState.username,
   );
 

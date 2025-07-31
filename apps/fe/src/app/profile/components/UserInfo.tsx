@@ -6,7 +6,7 @@ import type { RootState } from "@/store/store";
 
 export default function UserInfo() {
   const currentAccount = useSelector(
-    (state: RootState) => state.currentAccount
+    (state: RootState) => state.currentAccount,
   );
   const follow = 0;
   const follower = 0;

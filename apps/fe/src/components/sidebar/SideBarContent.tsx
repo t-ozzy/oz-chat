@@ -1,14 +1,17 @@
 import { Box, Button } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import type { SideBarNavItem } from "./sideBarNavItems";
 
 export default function SideBarContent({
+  href,
   label,
   icon: IconComponent,
   onClick,
   color,
 }: SideBarNavItem) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
   const router = useRouter();
   const dispatch = useDispatch();
 
