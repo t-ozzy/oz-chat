@@ -8,7 +8,7 @@ import type { RootState } from "@/store/store";
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const posts = useSelector((state: RootState) => state.post.posts);
+  const posts = useSelector((state: RootState) => state.post);
 
   const filteredPosts = useMemo(() => {
     if (!searchQuery) {
