@@ -43,20 +43,20 @@ const sideBarNavItems: SideBarNavItem[] = [
     },
   },
   {
-    href: "/posts/create",
-    label: "記事投稿",
-    icon: FaPencilAlt,
-    onClick: (router) => router.push("/posts/create"),
+    href: "/search",
+    label: "検索",
+    icon: FaSearch,
+    onClick: (router) => router.push("/search"),
     color: {
       bg: { main: "fontColor.main", sub: "transparent" },
       font: { main: "background.default", sub: "fontColor.main" },
     },
   },
   {
-    href: "/search",
-    label: "検索",
-    icon: FaSearch,
-    onClick: (router) => router.push("/search"),
+    href: "/posts/create",
+    label: "記事投稿",
+    icon: FaPencilAlt,
+    onClick: (router) => router.push("/posts/create"),
     color: {
       bg: { main: "fontColor.main", sub: "transparent" },
       font: { main: "background.default", sub: "fontColor.main" },
