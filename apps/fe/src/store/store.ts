@@ -6,10 +6,55 @@ import storage from "redux-persist/lib/storage";
 import accountsReducer from "./features/account/accountsSlice";
 import currentAccountReducer from "./features/account/currentAccountSlice";
 import postReducer from "./features/post/postSlice";
+import { Post } from "@/components/posts/type";
+
+// Dateオブジェクトの変換処理
+const dateTransform = {
+  // localStorageに保存する際にDateを文字列に変換
+  in: (state: any) => {
+    if (!state) return state;
+    
+    // postスライスのcreatedAtを文字列に変換
+    if (state.post && Array.isArray(state.post)) {
+      return {
+        ...state,
+        post: state.post.map((post: Post) => ({
+          ...post,
+          createdAt: post.createdAt instanceof Date 
+            ? post.createdAt.toISOString() 
+            : post.createdAt
+        }))
+      };
+    }
+    
+    return state;
+  },
+  
+  // localStorageから読み込む際に文字列をDateに変換
+  out: (state: any) => {
+    if (!state) return state;
+    
+    // postスライスのcreatedAtをDateに変換
+    if (state.post && Array.isArray(state.post)) {
+      return {
+        ...state,
+        post: state.post.map((post: Post) => ({
+          ...post,
+          createdAt: typeof post.createdAt === 'string' 
+            ? new Date(post.createdAt) 
+            : post.createdAt
+        }))
+      };
+    }
+    
+    return state;
+  }
+};
 
 const persistConfig = {
   key: "root",
   storage, // storageに永続化
+  transforms: [dateTransform], // 変換処理を追加
 };
 
 const rootReducer = combineReducers({
