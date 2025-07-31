@@ -32,7 +32,7 @@ export default function SearchPage() {
         />
       </Box>
       {searchQuery && (
-        <Box border="border" borderWidth="1px" w="100%" m={0}>
+        <Box border="border" borderWidth="1px" w="100%" p="l">
           <VStack w="100%" alignItems="flex-start">
             <Text fontWeight="bold">"{searchQuery}"の検索結果</Text>
             <Text fontSize="sm" color="gray.500">
@@ -41,7 +41,13 @@ export default function SearchPage() {
           </VStack>
         </Box>
       )}
-      <Posts posts={filteredPosts}></Posts>
+      <Box m="l">
+        {searchQuery ? (
+          <Posts posts={filteredPosts}></Posts>
+        ) : (
+          <Text color="gray.500">キーワードを入力して検索してください</Text>
+        )}
+      </Box>
     </VStack>
   );
 }
