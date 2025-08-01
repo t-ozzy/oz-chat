@@ -31,14 +31,16 @@ export default function Post({
       <Box
         borderWidth="1px"
         borderColor="border"
-        py="4"
-        px="5"
+        pt="4"
+        pb="5"
+        pl="4"
+        pr="5"
         width="100%"
         bg="background.default"
         _hover={{ bg: "background.hover" }}
       >
         <HStack align="top">
-          <Avatar.Root colorPalette="gray">
+          <Avatar.Root colorPalette="gray" mr="1">
             <Avatar.Fallback name="O Z" />
             <Avatar.Image src={img} />
           </Avatar.Root>

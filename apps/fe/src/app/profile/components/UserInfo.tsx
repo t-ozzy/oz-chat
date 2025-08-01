@@ -14,7 +14,9 @@ export default function UserInfo() {
   return (
     <Box
       w="size.full"
-      p="6"
+      py="5"
+      pl="3"
+      pr="4"
       backgroundColor="background.default"
       borderWidth="1px"
       borderColor="border"
@@ -45,10 +47,10 @@ export default function UserInfo() {
               </Text>
             </Button>
           </HStack>
-          <Text mb="3" wordBreak="break-word">
+          <Text mb="2" wordBreak="break-word">
             {currentAccount.message}
           </Text>
-          <HStack mb="4">
+          <HStack mb="2">
             <Text fontSize="s" color="gray.500" mr="2">
               <Text as="span" fontSize="m" fontWeight="bold" pr="1">
                 {follow}
