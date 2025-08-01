@@ -1,7 +1,7 @@
 import { Box, Image, VStack } from "@chakra-ui/react";
+import ozChatLogo from "./oz-chat.png";
 import SideBarContent from "./SideBarContent";
 import sideBarNavItems from "./sideBarNavItems";
-import ozChatLogo from "./oz-chat.png";
 
 export default function SideBar() {
   return (
