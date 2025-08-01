@@ -1,6 +1,7 @@
-import { Box, VStack } from "@chakra-ui/react";
+import { Box, Image, VStack } from "@chakra-ui/react";
 import SideBarContent from "./SideBarContent";
 import sideBarNavItems from "./sideBarNavItems";
+import ozChatLogo from "./oz-chat.png";
 
 export default function SideBar() {
   return (
@@ -16,6 +17,7 @@ export default function SideBar() {
       minW="150px"
     >
       <VStack as="nav" align="stretch" pt={8}>
+        <Image src={ozChatLogo.src} alt="oz-chat" w="150px" mb={8} />
         {sideBarNavItems.map((item) => (
           <SideBarContent {...item} key={item.label} />
         ))}
