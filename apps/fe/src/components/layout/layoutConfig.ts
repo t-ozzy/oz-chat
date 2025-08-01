@@ -1,28 +1,45 @@
 export type LayoutConfig = {
+  match: (pathname: string) => boolean;
   showHeader: boolean;
   showSidebar: boolean;
 };
 
-export const layoutConfig: Record<string, LayoutConfig> = {
-  "/": {
-    showHeader: false,
-    showSidebar: false,
-  },
-  "/register": {
-    showHeader: false,
-    showSidebar: false,
-  },
-  "/login": {
-    showHeader: false,
-    showSidebar: false,
-  },
-  // デフォルト設定
-  default: {
+export const showLayoutConfigs: LayoutConfig[] = [
+  {
+    match: (pathname) => pathname === "/posts",
     showHeader: true,
     showSidebar: true,
   },
-};
+  {
+    match: (pathname) => pathname === "/profile",
+    showHeader: true,
+    showSidebar: true,
+  },
+  {
+    match: (pathname) => pathname === "/posts/create",
+    showHeader: true,
+    showSidebar: true,
+  },
+  {
+    match: (pathname) => pathname === "/search",
+    showHeader: true,
+    showSidebar: true,
+  },
+  {
+    match: (pathname) => /^\/posts\/[^/]+$/.test(pathname),
+    showHeader: true,
+    showSidebar: true,
+  },
+];
 
 export function getLayoutConfig(pathname: string): LayoutConfig {
-  return layoutConfig[pathname] || layoutConfig.default;
+  const found = showLayoutConfigs.find((config) => config.match(pathname));
+  if (!found) {
+    return {
+      match: () => false,
+      showHeader: false,
+      showSidebar: false,
+    };
+  }
+  return found;
 }
