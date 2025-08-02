@@ -2,20 +2,21 @@
 
 import { List } from "@chakra-ui/react";
 import { defaultImgUrl } from "@/app/posts/const";
-import Post from "./Post";
-import type { Post as TypePost } from "./type";
+import PostComponent from "./Post";
+import type { Post } from "./type";
 
 type PostsProps = {
-  posts: TypePost[];
+  posts: Post[];
 };
 
 export default function Posts({ posts }: PostsProps) {
+  console.log(posts);
   return (
     <List.Root listStyle="none" width="100%">
       {posts.map((e) => {
         return (
           <List.Item key={e.id}>
-            <Post
+            <PostComponent
               postId={e.id}
               name={e.name}
               post={e.post}

@@ -12,7 +12,7 @@ export const postSlice = createSlice({
         id: crypto.randomUUID(), // Use UUID for unique ID
         name: action.payload.name,
         post: action.payload.post,
-        createdAt: new Date().toISOString(),
+        createdAt: new Date(),
       };
       state.unshift(newPost); // 先頭に入れる
     },
